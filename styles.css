@@ -1,0 +1,165 @@
+.header_main
+{
+    grid-area: header-main;
+    background: lightblue;
+}
+
+.header_login {
+    grid-area: header-login;
+    background: lawngreen;
+}
+.header_find
+{
+    grid-area: header-filter;
+    background: coral;
+}
+    .a2 {
+    grid-area: text1;
+    background: red;
+    }
+    .a3 {
+    grid-area: video;
+    background: green;
+    }
+    .a4 {
+    grid-area: text2;
+    background: violet;
+    }
+    .a5 {
+    grid-area: table1;
+    background: yellow;
+    }
+    .a6 {
+    grid-area: text3;
+    background: lightcoral;
+   
+    }
+    .a7 {
+    grid-area: img1;
+    background: grey;
+    
+    }
+    .a8 {
+    grid-area: text4;
+    background: greenyellow;
+    }
+    .a9 {
+    grid-area: text5;
+    background: pink;
+    }
+    .footer_left {
+    grid-area: footer-left;
+    background: darkcyan;
+
+    }        
+    .footer_right {
+    grid-area: footer-right;
+    background: honeydew;
+
+    }
+
+
+.grid{
+    display: grid;
+    grid-template-columns: 5% 20% 25% 30% 10% 10%;
+    grid-template-rows: 120px 500px 100px 600px 220px 100px 250px 150px 200px;
+    grid-template-areas:
+    "header-main header-main header-main header-main header-login header-filter"
+    "text1 text1 text1 video video video"
+    "text2 text2 text2 text2 text2 text2"
+    "table1 table1 table1 . . ."
+    "text3 text3 text3 text3 img1 img1"  
+    ". . . . text4 text4"
+    "text5 text5 text5 text5 text5 text5"
+    "side side . . . ."
+    "footer-left footer-left footer-left footer-right footer-right footer-right"
+}
+
+.title_text
+{
+    color: red;
+    font-family: Georgia, 'Times New Roman', Times, serif;  
+    font-size: 50px;
+}
+#header_container_title_text
+{
+    text-align: center;
+}
+.header_container_find_img_container_img
+{
+    width: 100px;
+    height: auto;
+    border-right: 3px solid black;
+}
+.header_container_find_text_container
+{
+    
+    position: relative;
+    top: -25px;
+    left: 30px;
+}
+.header_container_login_img_container_img
+{
+    width: 100px;
+    height: auto;
+    border-right: 3px solid black;
+}
+.header_container_login_text_container_text
+{
+    
+    position: relative;
+    top: -25px;
+    left: 30px;
+}
+#footer_container_follow_us_title_text
+{
+    text-align: center;
+    position: relative;
+    top: -30px;
+}
+.footer_container_follow_us_title_social
+{
+    position: relative; 
+}
+.footer_container_follow_us_title_social_img
+{
+    width: 75px;
+    height: 75px;
+    position: relative;
+    top: -100px;
+
+}
+.footer_container_follow_us_title_social_text
+{
+    color: black;
+    position: relative;
+    top: -80px;
+    text-align: center;
+    font-size: 30px;
+}
+#footer_container_follow_us_title_social_img_telegram
+{
+    left: 35%;
+}
+#footer_container_follow_us_title_social_img_facebook
+{
+    left: 50%;
+}
+.footer_container_right_menu_receipts_button
+{
+    font-size: 25px;
+    background: solid 3 px black;
+    border-radius: 5px;
+    width: 200px;
+    height: 50px;
+    position: relative;
+}
+#footer_container_right_menu_receipts_button
+{
+    left: 50%;
+    top: 120px;
+}
+#footer_container_right_menu_private_button
+{
+    left: 50%;
+}
