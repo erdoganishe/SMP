@@ -13,50 +13,21 @@
     grid-area: header-filter;
     background: coral;
 }
-    .a2 {
-    grid-area: text1;
-    background: red;
-    }
-    .a3 {
-    grid-area: video;
-    background: green;
-    }
-    .a4 {
-    grid-area: text2;
-    background: violet;
-    }
-    .a5 {
-    grid-area: table1;
-    background: yellow;
-    }
-    .a6 {
-    grid-area: text3;
-    background: lightcoral;
-   
-    }
-    .a7 {
-    grid-area: img1;
-    background: grey;
-    
-    }
-    .a8 {
-    grid-area: text4;
-    background: greenyellow;
-    }
-    .a9 {
-    grid-area: text5;
-    background: pink;
-    }
-    .footer_left {
+.content-table{
+    grid-area: main;
+    display: flex;
+    justify-content: center;
+}
+.footer_left {
     grid-area: footer-left;
     background: darkcyan;
 
-    }        
-    .footer_right {
+}        
+.footer_right {
     grid-area: footer-right;
     background: honeydew;
 
-    }
+}
 
 
 .grid{
@@ -65,13 +36,13 @@
     grid-template-rows: 120px 500px 100px 600px 220px 100px 250px 150px 200px;
     grid-template-areas:
     "header-main header-main header-main header-main header-login header-filter"
-    "text1 text1 text1 video video video"
-    "text2 text2 text2 text2 text2 text2"
-    "table1 table1 table1 . . ."
-    "text3 text3 text3 text3 img1 img1"  
-    ". . . . text4 text4"
-    "text5 text5 text5 text5 text5 text5"
-    "side side . . . ."
+    "main main main main main main"
+    "main main main main main main"
+    "main main main main main main"
+    "main main main main main main"  
+    "main main main main main main"
+    "main main main main main main"
+    "main main main main main main"
     "footer-left footer-left footer-left footer-right footer-right footer-right"
 }
 
@@ -162,4 +133,49 @@
 #footer_container_right_menu_private_button
 {
     left: 50%;
+}
+table {
+    width: 60%;
+    border-collapse: collapse;
+  }
+  
+  table td {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  table img {
+    width: 300px;
+    height: 300px;
+    transition: transform 0.3s;
+  }
+  
+  table img:hover {
+    transform: scale(1.1);
+  }
+  
+  table td{
+    font-size: 25px;
+  }
+  
+  table td:last-child {
+    text-align: center;
+  }
+  
+  table button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: #fff;
+  }
+  
+  table button:hover {
+    background-color: #3e8e41;
+  }
+.text-below-image{
+    
+    text-align:center;
 }
