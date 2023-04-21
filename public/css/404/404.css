@@ -9,7 +9,7 @@
 body {
   background-color: #f4f4f4;
   font-family: Arial, sans-serif;
-  background-image: url('../public/img/front_img/bg.png');
+  background-image: url('/img/front_img/bg.png');
   background-size: cover;
   background-repeat: no-repeat;
 }
