@@ -6,7 +6,6 @@ data.food = require('../../data/food.json');
 router.route('/')
     .get((req, res) => {
         res.json(data.food);
-        console.log(data.food);
     })
     .post((req, res) => {
         res.json({"name": req.body.name});
@@ -20,7 +19,7 @@ router.route('/')
 
 router.route('/:id')
     .get((req, res) => {
-        res.json({"id": req.body.id});
+        res.json({"id": req.params.id});
     });
 
 module.exports = router;
