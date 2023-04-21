@@ -43,7 +43,7 @@ window.onload = function() {
     const imageNumbers = images.map(image => Number(image.match(/\d+/)[0]));
     const textBelowImages = document.querySelectorAll('.text-below-image');
     for (let i = 0; i < textBelowImages.length; i++) {
-      textBelowImages[i].innerHTML = dishes[imageNumbers[i] + 1];
+      textBelowImages[i].innerHTML = dishes[imageNumbers[i] - 1];
     }
 
 };
