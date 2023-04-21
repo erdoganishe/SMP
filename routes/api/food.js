@@ -1,25 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const data = {};
-data.food = require('../../data/food.json');
+const foodController = require('../../controllers/foodController');
 
 router.route('/')
-    .get((req, res) => {
-        res.json(data.food);
-    })
-    .post((req, res) => {
-        res.json({"name": req.body.name});
-    })
-    .put((req, res) => {
-        res.json({"name": req.body.name});
-    })
-    .delete((req, res) => {
-        res.json({"id": req.body.id});
-    });
+    .get(foodController.getAllFood)
+    .post(foodController.createNewFood)
+    .put(foodController.updateFood)
+    .delete(foodController.deleteFood);
 
 router.route('/:id')
-    .get((req, res) => {
-        res.json({"id": req.params.id});
-    });
+    .get(foodController.getFood);
 
 module.exports = router;

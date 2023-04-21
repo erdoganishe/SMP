@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const cors = require('cors');
+const corsOptions = require('./config/corsOptions');
 const {logger} = require('./middleware/logEvents');
 const PORT = process.env.PORT || 3500;
 
@@ -9,17 +10,6 @@ const PORT = process.env.PORT || 3500;
 app.use(logger);
 
 //Cross Origin Resource Sharing
-const whitelist = ['https://www.DOMAINNAME.com', 'http://127.0.0.1:5500', 'http://localhost:3500'];
-const corsOptions = {
-  origin: (origin, callback) => {
-    if(whitelist.indexOf(origin) !== -1 || !origin){ // REMOVE || !origin
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by cors'));
-    }
-  },
-  optionsSuccessStatus: 200
-}
 app.use(cors(corsOptions));
 
 app.use(express.urlencoded({extended : false}));
