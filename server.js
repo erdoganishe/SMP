@@ -21,11 +21,12 @@ app.use('/regpage', express.static(path.join(__dirname, '/public')));
 app.use('/', require('./routes/regpage'));
 app.use('/food', require('./routes/api/food'));
 app.use('/', require('./routes/root'));
+app.use('/register', require('./routes/register'));
 
 app.all('*', (req, res) => {
   res.status(404);
   if(req.accepts('html')){
-      res.sendFile(path.join(__dirname, '../views', '404.html'));
+      res.sendFile(path.join(__dirname, 'views', '404.html'));
   } else if(req.accepts('json')){
       res.json({error: "404 Not Found"});
   } else {
