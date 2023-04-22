@@ -1,181 +1,232 @@
-.header_main
-{
-    grid-area: header-main;
-    background: lightblue;
+/* Global Styles */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.header_login {
-    grid-area: header-login;
-    background: lawngreen;
-}
-.header_find
-{
-    grid-area: header-filter;
-    background: coral;
-}
-.content-table{
-    grid-area: main;
-    display: flex;
-    justify-content: center;
-}
-.footer_left {
-    grid-area: footer-left;
-    background: darkcyan;
-
-}        
-.footer_right {
-    grid-area: footer-right;
-    background: honeydew;
-
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('../img/Recipe_bg.png');
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: right;
+    color: white;
 }
 
-
-.grid{
-    display: grid;
-    grid-template-columns: 5% 20% 25% 30% 10% 10%;
-    grid-template-rows: 120px 500px 100px 600px 220px 100px 250px 150px 200px;
-    grid-template-areas:
-    "header-main header-main header-main header-main header-login header-filter"
-    "main main main main main main"
-    "main main main main main main"
-    "main main main main main main"
-    "main main main main main main"  
-    "main main main main main main"
-    "main main main main main main"
-    "main main main main main main"
-    "footer-left footer-left footer-left footer-right footer-right footer-right"
-}
-
-.title_text
-{
-    color: red;
-    font-family: Georgia, 'Times New Roman', Times, serif;  
-    font-size: 50px;
-}
-#header_container_title_text
-{
-    text-align: center;
-}
-.header_container_find_img_container_img
-{
-    width: 100px;
-    height: auto;
-    border-right: 3px solid black;
-}
-.header_container_find_text_container
-{
-    
-    position: relative;
-    top: -25px;
-    left: 30px;
-}
-.header_container_login_img_container_img
-{
-    width: 100px;
-    height: auto;
-    border-right: 3px solid black;
-}
-.header_container_login_text_container_text
-{
-    
-    position: relative;
-    top: -25px;
-    left: 30px;
-}
-#footer_container_follow_us_title_text
-{
-    text-align: center;
-    position: relative;
-    top: -30px;
-}
-.footer_container_follow_us_title_social
-{
-    position: relative; 
-}
-.footer_container_follow_us_title_social_img
-{
-    width: 75px;
-    height: 75px;
-    position: relative;
-    top: -100px;
-
-}
-.footer_container_follow_us_title_social_text
-{
+a {
+    text-decoration: none;
     color: black;
-    position: relative;
-    top: -80px;
-    text-align: center;
-    font-size: 30px;
 }
-#footer_container_follow_us_title_social_img_telegram
-{
-    left: 35%;
+
+/* Header */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(25, 25, 27);
+    padding: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-#footer_container_follow_us_title_social_img_facebook
-{
-    left: 50%;
+
+header img {
+    height: 80px;
+    width: 80px;
 }
-.footer_container_right_menu_receipts_button
-{
-    font-size: 25px;
-    background: solid 3 px black;
+
+header h1 {
+    font-size: 36px;
+}
+
+header form {
+    display: flex;
+    align-items: center;
+}
+
+header form input[type="text"] {
+    padding: 8px;
+    margin-right: 10px;
     border-radius: 5px;
-    width: 200px;
-    height: 50px;
-    position: relative;
+    border: none;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 }
-#footer_container_right_menu_receipts_button
-{
-    left: 50%;
-    top: 120px;
+
+header form input[type="submit"] {
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none;
+    background: #7f8fa6;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
 }
-#footer_container_right_menu_private_button
-{
-    left: 50%;
+
+header nav {
+    display: flex;
 }
-table {
+
+header nav ul {
+    display: flex;
+    list-style: none;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Main Content */
+
+main {
+    background: transparent;
+    backdrop-filter: blur(10px);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+main table {
     width: 60%;
     border-collapse: collapse;
-  }
-  
-  table td {
+}
+
+main table td {
     padding: 10px;
     text-align: center;
-  }
-  
-  table img {
+}
+
+main table img {
     width: 300px;
     height: 300px;
     transition: transform 0.3s;
-  }
-  
-  table img:hover {
+}
+
+main table img:hover {
     transform: scale(1.1);
-  }
-  
-  table td{
+}
+
+main table td {
     font-size: 25px;
-  }
-  
-  table td:last-child {
+}
+
+main table td:last-child {
     text-align: center;
-  }
-  
-  table button {
+}
+
+main table button {
     margin: 10px;
     padding: 10px 20px;
     font-size: 20px;
     border: none;
     border-radius: 5px;
-    background-color: #4CAF50;
+    background-color: #7f8fa6;
     color: #fff;
-  }
-  
-  table button:hover {
-    background-color: #3e8e41;
-  }
-.text-below-image{
-    
-    text-align:center;
+}
+
+main table button:hover {
+    background-color: #718093;
+}
+
+.text-below-image {
+
+    text-align: center;
+}
+
+/* Footer */
+
+.footer {
+    background: #000;
+    padding: 30px 0px;
+    font-family: 'Play', sans-serif;
+    text-align: center;
+}
+
+.footer .row {
+    width: 100%;
+    margin: 1% 0%;
+    padding: 0.6% 0%;
+    color: gray;
+    font-size: 0.8em;
+}
+
+.footer .row a {
+    text-decoration: none;
+    color: gray;
+    transition: 0.5s;
+}
+
+.footer .row a:hover {
+    color: #fff;
+}
+
+.footer .row ul {
+    width: 100%;
+}
+
+.footer .row ul li {
+    display: inline-block;
+    margin: 0px 30px;
+}
+
+.footer .row a i {
+    font-size: 2em;
+    margin: 0% 1%;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    header {
+        flex-direction: column;
+    }
+
+    header img {
+        margin-bottom: 20px;
+    }
+
+    header h1 {
+        margin-bottom: 20px;
+    }
+
+    header form {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header form input[type="text"] {
+        margin-bottom: 10px;
+    }
+
+    header nav {
+        margin-top: 20px;
+    }
+
+    main .dish img {
+        max-width: 100%;
+    }
+
+    main .instructions img {
+        max-width: 100%;
+    }
+
+    .footer {
+        text-align: left;
+        padding: 5%;
+    }
+
+    .footer .row ul li {
+        display: block;
+        margin: 10px 0px;
+        text-align: left;
+    }
+
+    .footer .row a i {
+        margin: 0% 3%;
+    }
 }

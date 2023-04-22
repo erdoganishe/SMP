@@ -348,6 +348,7 @@
 20230421	20:00:47	d3516e21-874b-4a3d-b42e-713a5b8080b6	GET	undefined	/api/css/404/404.css
 20230421	20:00:53	40593fa4-6ac7-4d65-9e56-6f82cb111fa3	GET	undefined	/routes/api/food
 20230421	20:00:53	228319e3-e485-46e0-abe2-f49a32447e35	GET	undefined	/routes/api/css/404/404.css
+<<<<<<< HEAD
 20230421	20:06:22	01cc010e-e3d9-4803-9d6e-a673e3aa2bf1	GET	undefined	/
 20230421	20:06:27	dff017ef-a882-4a11-8acf-cd372b3d9bb7	GET	undefined	/food
 20230421	20:08:55	c977f7dc-2e4d-4bf1-ba08-3586470af07a	GET	undefined	/food
@@ -572,3 +573,6 @@
 20230421	21:19:15	a8999d52-65b7-4cf4-9531-86c1ad0fdb47	DELETE	undefined	/food
 20230421	21:19:51	292164df-2f16-4269-8181-4b03962adc3b	DELETE	undefined	/food
 20230421	21:19:55	4a764486-1aeb-4f55-a25d-ead2b8be6c49	DELETE	undefined	/food
+=======
+20230421	21:09:42	9df4b65b-0a15-45df-bc27-f3487ee89655	GET	undefined	/food
+>>>>>>> main
