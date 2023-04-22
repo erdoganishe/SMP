@@ -1,0 +1,249 @@
+/* Global Styles */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('../public/img/Recipe_bg.png');
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: right;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Header */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(25, 25, 27);
+    padding: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+header img {
+    height: 80px;
+    width: 80px;
+}
+
+header h1 {
+    font-size: 36px;
+}
+
+header form {
+    display: flex;
+    align-items: center;
+}
+
+header form input[type="text"] {
+    padding: 8px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+header form input[type="submit"] {
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none;
+    background: #7f8fa6;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+header nav {
+    display: flex;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Main Content */
+
+main {
+    background: transparent;
+    backdrop-filter: blur(10px);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+main .dish {
+    text-align: center;
+}
+
+main .dish h2 {
+    font-size: 32px;
+    margin: 20px 0;
+}
+
+main .dish table {
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+main .dish table td,
+main .dish table th {
+    border: 1px solid #7f8fa6;
+    padding: 10px;
+}
+
+main .dish table th {
+    background-color: #7f8fa6;
+    color: white;
+}
+
+main .dish table th:first-child,
+main .dish table td:first-child {
+    font-weight: bold;
+}
+
+main .dish p {
+    margin: 20px auto;
+    text-align: justify;
+    max-width: 800px;
+}
+
+main .dish img {
+    display: block;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.main .instructions {
+    text-align: center;
+}
+
+.main .instructions p {
+    margin: 20px auto;
+    text-align: justify;
+    max-width: 800px;
+}
+
+.main .instructions img {
+    display: block;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.main .conclusion {
+    text-align: justify;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+/* Footer */
+
+.footer {
+    background: #000;
+    padding: 30px 0px;
+    font-family: 'Play', sans-serif;
+    text-align: center;
+}
+
+.footer .row {
+    width: 100%;
+    margin: 1% 0%;
+    padding: 0.6% 0%;
+    color: gray;
+    font-size: 0.8em;
+}
+
+.footer .row a {
+    text-decoration: none;
+    color: gray;
+    transition: 0.5s;
+}
+
+.footer .row a:hover {
+    color: #fff;
+}
+
+.footer .row ul {
+    width: 100%;
+}
+
+.footer .row ul li {
+    display: inline-block;
+    margin: 0px 30px;
+}
+
+.footer .row a i {
+    font-size: 2em;
+    margin: 0% 1%;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    header {
+        flex-direction: column;
+    }
+
+    header img {
+        margin-bottom: 20px;
+    }
+
+    header h1 {
+        margin-bottom: 20px;
+    }
+
+    header form {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header form input[type="text"] {
+        margin-bottom: 10px;
+    }
+
+    header nav {
+        margin-top: 20px;
+    }
+
+    main .dish img {
+        max-width: 100%;
+    }
+
+    main .instructions img {
+        max-width: 100%;
+    }
+
+    .footer {
+        text-align: left;
+        padding: 5%;
+    }
+
+    .footer .row ul li {
+        display: block;
+        margin: 10px 0px;
+        text-align: left;
+    }
+
+    .footer .row a i {
+        margin: 0% 3%;
+    }
+}

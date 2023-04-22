@@ -348,3 +348,4 @@
 20230421	20:00:47	d3516e21-874b-4a3d-b42e-713a5b8080b6	GET	undefined	/api/css/404/404.css
 20230421	20:00:53	40593fa4-6ac7-4d65-9e56-6f82cb111fa3	GET	undefined	/routes/api/food
 20230421	20:00:53	228319e3-e485-46e0-abe2-f49a32447e35	GET	undefined	/routes/api/css/404/404.css
+20230421	21:09:42	9df4b65b-0a15-45df-bc27-f3487ee89655	GET	undefined	/food
