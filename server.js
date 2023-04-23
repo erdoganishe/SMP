@@ -22,6 +22,7 @@ app.use('/', require('./routes/regpage'));
 app.use('/food', require('./routes/api/food'));
 app.use('/', require('./routes/root'));
 app.use('/register', require('./routes/register'));
+app.use('/auth', require('./routes/auth'));
 
 app.all('*', (req, res) => {
   res.status(404);
