@@ -25,7 +25,7 @@ const createNewFood = (req, res) => {
 const updateFood = (req, res) => {
     const food_one = data.food.find(food => food.id === parseInt(req.body.id));
     if(!food_one){
-        return res.status(400).json({"message": `Food Id ${food_one.body.id} not found`});
+        return res.status(400).json({"message": `Food Id ${req.body.id} not found`});
     }
     if (req.body.name) food_one.name = req.body.name;
     //remove existed
@@ -50,9 +50,9 @@ const deleteFood = (req, res) => {
 }
 
 const getFood = (req, res) => {
-    const food_one = data.food.find(food => food.id === parseInt(req.body.id));
+    const food_one = data.food.find(food => food.id === parseInt(req.params.id));
     if(!food_one){
-        return res.status(400).json({"message": `Food Id ${food_one.body.id} not found`});
+        return res.status(400).json({"message": `Food Id ${req.params.id} not found`});
     }
     res.json(food_one);
 }

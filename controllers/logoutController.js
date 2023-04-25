@@ -9,13 +9,13 @@ const handleLogout = async (req, res) => {
     // On client delete the accessToken
 
     const cookies = req.cookies;
-    if (!cookies?.jwt) return res.status(204); //No content
+    if (!cookies?.jwt) return res.sendStatus(204); //No content
     const refreshToken = cookies.jwt;
 
     //is refreshToken in db
     const foundUser = usersDB.users.find(person => person.refreshToken === refreshToken);
     if (!foundUser) {
-        res.clearCookie('jwt', {httpOnly: true, sameSite: 'None', secure: true});
+        res.clearCookie('jwt', {httpOnly: true/*, sameSite: 'None', secure: true*/});
         res.sendStatus(204);
     }
 
@@ -28,7 +28,7 @@ const handleLogout = async (req, res) => {
         JSON.stringify(usersDB.users)
     )
 
-    res.clearCookie('jwt', {httpOnly: true, sameSite: 'None', secure: true}); // secure: true - only server on https
+    res.clearCookie('jwt', {httpOnly: true/*, sameSite: 'None', secure: true*/}); // secure: true - only server on https
     res.sendStatus(204);
 }
 
