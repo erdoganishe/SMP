@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Registration</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/regpage/styles.css">
+  <script src="scripts/registration.js"></script>
 </head>
 <body>
   <div class="container">
@@ -15,27 +16,27 @@
         </tr>
       <tr>
         <td class="label">E-mail:</td>
-        <td><input type="text" class="input"></td>
+        <td><input type="text" class="input" id = "email"></td>
       </tr>
       <tr>
         <td class="label">Password:</td>
-        <td><input type="password" class="input"></td>
+        <td><input type="password" class="input" id = "password"></td>
       </tr>
       <tr>
         <td class="label">Confirm Password:</td>
-        <td><input type="password" class="input"></td>
+        <td><input type="password" class="input" id = "confirm-password"></td>
       </tr>
       <tr>
         <td class="label">Reader:</td>
-        <td><input type="checkbox" class="checkbox"></td>
+        <td><input type="checkbox" class="checkbox" id ="check-reader"></td>
       </tr>
       <tr>
         <td class="label">Writer:</td>
-        <td><input type="checkbox" class="checkbox"></td>
+        <td><input type="checkbox" class="checkbox" id = "check-writer"></td>
       </tr>
       <tr>
         <td></td>
-        <td><button class="button">Register</button></td>
+        <td><button class="button" id ="register-btn">Register</button></td>
       </tr>
     </table>
   </div>

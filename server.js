@@ -5,6 +5,7 @@ const path = require('path');
 const cors = require('cors');
 const corsOptions = require('./config/corsOptions');
 const {logger} = require('./middleware/logEvents');
+
 const cookieParser = require('cookie-parser');
 const credentials = require('./middleware/credentials');
 const mongoose = require('mongoose');
@@ -42,7 +43,10 @@ app.use('/register', require('./routes/register'));
 app.use('/auth', require('./routes/auth'));
 app.use('/refresh', require('./routes/refresh'));
 app.use('/logout', require('./routes/logout'));
+
+
 // Access token
+
 app.use('/food', require('./routes/api/food'));
 
 app.all('*', (req, res) => {
@@ -55,6 +59,7 @@ app.all('*', (req, res) => {
       res.type('txt').send("404 Not Found");
   }
 });
+
 
 mongoose.connection.once('open', () => {
   console.log('Connected to DB');
