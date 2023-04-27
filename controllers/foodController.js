@@ -1,58 +1,59 @@
-const data = {
-    food: require('../model/food.json'),
-    setFood: function (data) {this.food = data}
+const Food = require('../model/Food');
+
+const getAllFood = async (req, res) => {
+    const food = await Food.find();
+    if(!food) return res.sendStatus(204).json({'message': 'No food!'});
+    res.json(food)
 }
 
-const getAllFood = (req, res) => {
-    res.json(data.food);
-}
-
-const createNewFood = (req, res) => {
-    const newFood = {
-        id: data.food?.length ? data.food[data.food.length - 1].id + 1 : 1,
-        name: req.body.name   
+const createNewFood = async (req, res) => {
+    if(!req?.body?.name){
+        return res.sendStatus(400).json({'message': 'Name are required!'});
     }
 
-    if(!newFood.name){
-        return res.status(400).json({'message' : 'Name is requaired'});
+    try{
+        const result = await Food.create({
+            name: req.body.name
+        });
+        
+        res.status(201).json(result);
+    } catch (err) {
+        console.error(err);
     }
-
-    data.setFood([...data.food, newFood]);
-
-    res.status(201).json({"name": req.body.name});
 }
 
-const updateFood = (req, res) => {
-    const food_one = data.food.find(food => food.id === parseInt(req.body.id));
+const updateFood = async (req, res) => {
+    if(!req?.body?.id){
+        return res.status(400).json({'message': 'ID is required!'});
+    }
+
+    const food_one = await Food.findOne({ _id: req.body.id}).exec();
+
     if(!food_one){
-        return res.status(400).json({"message": `Food Id ${req.body.id} not found`});
+        return res.status(204).json({"message": `No food with ID ${req.body.id}.`});
     }
-    if (req.body.name) food_one.name = req.body.name;
-    //remove existed
-    const filtredArray = data.food.filter(food => food.id !== parseInt(req.body.id));
-    //add updated
-    const unsortedArray = [...filtredArray, food_one];
-    //sort = add new
-    data.setFood(unsortedArray.sort((a,b) => a.id > b.id ? 1 : a.id < b.id ? -1 : 0))
-    res.json(data.food);
+    if (req.body?.name) food_one.name = req.body.name;
+    const result = await food_one.save();
+    res.json(result);
 }
 
-const deleteFood = (req, res) => {
-    const food_one = data.food.find(food => food.id === parseInt(req.body.id));
+const deleteFood = async (req, res) => {
+    if(!req?.body?.id) return res.status(400).json({ 'message': 'Food ID required'});
+
+    const food_one = await Food.findOne({ _id: req.body.id}).exec();
     if(!food_one){
-        return res.status(400).json({"message": `Food Id ${req.body.id} not found`});
+        return res.status(204).json({"message": `No food with ID ${req.body.id}.`});
     }
-    //remove existed
-    const filtredArray = data.food.filter(food => food.id !== parseInt(req.body.id));
-    //sort = add new
-    data.setFood(filtredArray)
-    res.json(data.food);
+    const result = await food_one.deleteOne({ _id: req.body.id});
+    res.json(result);
 }
 
-const getFood = (req, res) => {
-    const food_one = data.food.find(food => food.id === parseInt(req.params.id));
+const getFood = async (req, res) => {
+    if(!req?.params?.id) return res.status(400).json({ 'message': 'Food ID required'});
+
+    const food_one = await Food.findOne({ _id: req.params.id}).exec();
     if(!food_one){
-        return res.status(400).json({"message": `Food Id ${req.params.id} not found`});
+        return res.status(204).json({"message": `No food with ID ${req.params.id}.`});
     }
     res.json(food_one);
 }
