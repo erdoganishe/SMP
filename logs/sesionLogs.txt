@@ -1,0 +1,2 @@
+20230427	22:41:47	16b3b394-3d78-4bfe-bc80-4abba56ed118	Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/112.0	/login	127.0.0.1	undefined
+20230427	22:41:47	5807b313-dab8-4dee-b833-a15873b1adf0	Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/112.0	/styles.css	127.0.0.1	undefined

@@ -20,7 +20,7 @@ const handleLogin = async (req, res) => {
                 }
             },
             process.env.ACCESS_TOKEN_SECRET,
-            { expiresIn: '30s' } //Change to 5-15 min
+            { expiresIn: '5m' } //Change to 5-15 min
         );
         //create JWTs
         const refreshToken = jwt.sign(

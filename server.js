@@ -5,11 +5,12 @@ const path = require('path');
 const cors = require('cors');
 const corsOptions = require('./config/corsOptions');
 const {logger} = require('./middleware/logEvents');
-const verifyJwT = require('./middleware/verifyJWT');
 const cookieParser = require('cookie-parser');
 const credentials = require('./middleware/credentials');
 const mongoose = require('mongoose');
 const connectDB = require('./config/dbConn');
+const { sessionHandler } = require('./middleware/sessionHandler');
+//const personalCounter = require('./middleware/personalCounter');
 const PORT = process.env.PORT || 3500;
 
 // connect to DB
@@ -17,6 +18,7 @@ connectDB();
 
 // logger
 app.use(logger);
+app.use(sessionHandler);
 
 // Handle options credentials
 app.use(credentials)
@@ -40,9 +42,7 @@ app.use('/register', require('./routes/register'));
 app.use('/auth', require('./routes/auth'));
 app.use('/refresh', require('./routes/refresh'));
 app.use('/logout', require('./routes/logout'));
-
 // Access token
-app.use(verifyJwT);
 app.use('/food', require('./routes/api/food'));
 
 app.all('*', (req, res) => {
