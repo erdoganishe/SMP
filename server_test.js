@@ -1,94 +1,52 @@
-const express = require('express');
-const app = express();
-app.enable('trust proxy');
-const connectDB = require('./config/dbConn');
-connectDB();
+// require('dotenv').config();
+// const express = require('express');
+// const app = express();
+// const mongoose = require('mongoose');
+// //const personalCounter = require('./middleware/personalCounter');
+// const connectDB = require('./config/dbConn');
 
-const currentDate = new Date().toISOString().slice(0, 10);
-const ListIp = require('./model/counter/ListIp');
-const Statistics = require('./model/counter/Statistic');
+// const PORT = process.env.PORT || 3500;
 
-ListIp.deleteMany({ date: { $ne: currentDate } })
-  .then(() => {
-    console.log('Deleted rows from "list_ip" collection where date is not equal to the current date');
-  })
-  .catch((err) => {
-    console.error(err);
-  });
+// // connect to DB
+// connectDB();
+// const { open } = require('node:fs/promises');
+// const path = require('path');
+// const Food = require('./model/Food');
 
-Statistics.updateMany({ date: { $ne: currentDate } }, { hosts: 0, hits: 0 })
-  .then(() => {
-    console.log('Updated "statistics" collection by setting hosts and hits to 0');
-  })
-  .catch((err) => {
-    console.error(err);
-  });
+// (async () => {
+//   const file = await open(path.join(__dirname, 'public', 'img', 'names.txt'));
 
-Statistics.updateMany({}, { date: currentDate })
-  .then(() => {
-    console.log('Updated "statistics" collection by setting the date to the current date');
-  })
-  .catch((err) => {
-    console.error(err);
-  });
+//   for await (const line of file.readLines()) {
+//     await Food.create({name: line});
+//   }
+// })();
 
-const userIp = req.ip;
-ListIp.findOne({ ip: userIp })
-  .then((result) => {
-    if (result) {
-      console.log('The IP exists in the "list_ip" collection');
-    } else {
-      console.log('The IP does not exist in the "list_ip" collection');
-    }
-  })
-  .catch((err) => {
-    console.error(err);
-  });
+// //console.log(readfile);
 
-ListIp.findOne({ ip: req.ip })
-  .then((result) => {
-    if (result) {
-      Statistics.findOne()
-        .then((row) => {
-          const newHits = row.hits + 1;
-          const newTotal = row.total + 1;
-          Statistics.updateOne({}, { $set: { hits: newHits, total: newTotal } })
-            .then(() => {
-              output_img(row.hosts, newHits, newTotal);
-            })
-            .catch((err) => {
-              console.error(err);
-            });
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    } else {
-      const currentDate = new Date().toISOString().slice(0, 10);
-      ListIp.create({ ip: req.ip, date: currentDate })
-        .then(() => {
-          Statistics.findOne()
-            .then((row) => {
-              const newHosts = row.hosts + 1;
-              const newHits = row.hits + 1;
-              const newTotal = row.total + 1;
-              Statistics.updateOne({}, { $set: { hosts: newHosts, hits: newHits, total: newTotal } })
-                .then(() => {
-                  output_img(newHosts, newHits, newTotal);
-                })
-                .catch((err) => {
-                  console.error(err);
-                });
-            })
-            .catch((err) => {
-              console.error(err);
-            });
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    }
-  })
-  .catch((err) => {
-    console.error(err);
-  });
+
+// //
+
+// // Handle options credentials
+// //app.use(credentials)
+
+// //Cross Origin Resource Sharing
+// //app.use(cors(corsOptions));
+
+// //app.use(express.urlencoded({extended : false}));
+// //app.use(express.json());
+
+// //middleware for cookies
+// //app.use(cookieParser());
+
+// // static data
+// //app.use(express.static(path.join(__dirname, '/public')));
+// //app.use('/regpage', express.static(path.join(__dirname, '/public')));
+
+
+
+// mongoose.connection.once('open', () => {
+//   console.log('Connected to DB');
+//   app.listen(PORT, () => {
+//     console.log(`Server running on port ${PORT}`);
+//   });
+// });
