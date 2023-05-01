@@ -10,7 +10,7 @@ const cookieParser = require('cookie-parser');
 const credentials = require('./middleware/credentials');
 const mongoose = require('mongoose');
 const connectDB = require('./config/dbConn');
-const { sessionHandler } = require('./middleware/sessionHandler');
+const { visitCounterByIp } = require('./middleware/sessionHandler');
 //const personalCounter = require('./middleware/personalCounter');
 const PORT = process.env.PORT || 3500;
 
@@ -19,7 +19,7 @@ connectDB();
 
 // logger
 app.use(logger);
-app.use(sessionHandler);
+app.use(visitCounterByIp);
 
 // Handle options credentials
 app.use(credentials)
