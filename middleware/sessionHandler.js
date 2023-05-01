@@ -21,84 +21,78 @@ const visitCounterByIp = async (req, res, next) => {
 
   const currentDate = new Date().toISOString().slice(0, 10);
   ListIp.deleteMany({ date: { $ne: currentDate } })
-  .catch((err) => {
-    console.error(err);
-  });
+    .catch((err) => {
+      console.error(err);
+    });
 
-Statistics.updateMany({ date: { $ne: currentDate } }, { hosts: 0, hits: 0 })
-  .catch((err) => {
-    console.error(err);
-  });
+  Statistics.updateMany({ date: { $ne: currentDate } }, { hosts: 0, hits: 0 })
+    .catch((err) => {
+      console.error(err);
+    });
 
-Statistics.updateMany({}, { date: currentDate })
-  .catch((err) => {
-    console.error(err);
-  });
+  Statistics.updateMany({}, { date: currentDate })
+    .catch((err) => {
+      console.error(err);
+    });
 
-ListIp.findOne({ ip: req.ip })
-  .then((result) => {
-    if (result) {
-      Statistics.findOne()
-        .then((statisticOne) => {
-          const newHits = statisticOne.hits + 1;
-          const newTotal = statisticOne.total + 1;
-          Statistics.updateOne({}, { $set: { hits: newHits, total: newTotal } })
-            .then(() => {
-              console.log(`${statisticOne.hosts}, ${newHits}, ${newTotal}`);
-            })
-            .catch((err) => {
-              console.error(err);
-            });
-            IpList2.findOne({ip: req.ip})
-            .then((ipListOne) => {
-              const newCount = ipListOne.count + 1;
-              IpList2.updateOne({ip: req.ip}, { $set: { count: newCount} })
-                .catch((err) => {
-                  console.error(err);
-                });
-            })
-            .catch((err) => {
-              console.error(err);
-            });
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    } else {
-      const currentDate = new Date().toISOString().slice(0, 10);
-      ListIp.create({ ip: req.ip, date: currentDate })
-        .then(() => {
-          Statistics.findOne()
-            .then((statisticRow) => {
-              const newHosts = statisticRow.hosts + 1;
-              const newHits = statisticRow.hits + 1;
-              const newTotal = statisticRow.total + 1;
-              Statistics.updateOne({}, { $set: { hosts: newHosts, hits: newHits, total: newTotal } })
-                .then(() => {
-                  console.log(`${newHosts}, ${newHits}, ${newTotal}`);
-                })
-                .catch((err) => {
-                  console.error(err);
-                });
-                IpList2.create({ip: req.ip, count: 0})
-                .catch((err) => {
-                  console.error(err);
-                });
-            })
-            .catch((err) => {
-              console.error(err);
-            });
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    }
-  })
-  .catch((err) => {
-    console.error(err);
-  });
+  ListIp.findOne({ ip: req.ip })
+    .then((result) => {
+      if (result) {
+        Statistics.findOne()
+          .then((statisticOne) => {
+            Statistics.updateOne({}, { $set: { hits: statisticOne.hits + 1, total: statisticOne.total + 1 } })
+              .then(() => {
+                console.log(`Update: ${statisticOne.hosts}, ${statisticOne.hits}, ${statisticOne.total}`);
+              })
+              .catch((err) => {
+                console.error(err);
+              });
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+        IpList2.findOne({ ip: req.ip })
+          .then((ipListOne) =>
+            IpList2.updateOne({ ip: req.ip }, { $set: { count: ipListOne.count + 1 } })
+              .catch((err) => {
+                console.error(err);
+              })
+          )
+          .catch((err) => {
+            console.error(err);
+          });
+      } else {
+        const currentDate = new Date().toISOString().slice(0, 10);
+        ListIp.create({ ip: req.ip, date: currentDate })
+          .then(() => {
+            Statistics.findOne()
+              .then((statisticRow) => {
+                Statistics.updateOne({}, { $set: { hosts: statisticRow.hosts + 1, hits: statisticRow.hits + 1, total: statisticRow.total + 1 } })
+                  .then(() => {
+                    console.log(`Create: ${statisticRow.hosts}, ${statisticRow.hits}, ${statisticRow.total}`);
+                  })
+                  .catch((err) => {
+                    console.error(err);
+                  });
+                IpList2.create({ ip: req.ip, count: 0 })
+                  .catch((err) => {
+                    console.error(err);
+                  });
+              })
+              .catch((err) => {
+                console.error(err);
+              });
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 
   next();
 };
 
-module.exports = { sessionHandler, visitCounterByIp};
+module.exports = { sessionHandler, visitCounterByIp };
