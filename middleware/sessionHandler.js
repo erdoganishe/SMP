@@ -1,5 +1,3 @@
-require('dotenv').config();
-const moment = require('moment');
 const { logEvents } = require('./logEvents');
 
 const ListIp = require('../model/counter/ListIp');
@@ -15,7 +13,6 @@ const sessionHandler = (req, res, next) => {
 const visitCounterByIp = async (req, res, next) => {
   const ip = req.ip;
   const user_agent = req.get('User-Agent');
-  const date = moment().format('YYYY-MM-DD');
   const ref = req.get('Referrer') || 'No';
   const user = req.get('Authorization') || 'No';
 
@@ -34,12 +31,6 @@ Statistics.updateMany({ date: { $ne: currentDate } }, { hosts: 0, hits: 0 })
   });
 
 Statistics.updateMany({}, { date: currentDate })
-  .catch((err) => {
-    console.error(err);
-  });
-
-const userIp = req.ip;
-ListIp.findOne({ ip: userIp })
   .catch((err) => {
     console.error(err);
   });
@@ -89,14 +80,7 @@ ListIp.findOne({ ip: req.ip })
                 .catch((err) => {
                   console.error(err);
                 });
-                IpList2.findOne({ip: req.ip})
-                .then((ipListOne) => {
-                  const newCount = ipListOne.count + 1;
-                  IpList2.updateOne({ip: req.ip}, { $set: { count: newCount} })
-                    .catch((err) => {
-                      console.error(err);
-                    });
-                })
+                IpList2.create({ip: req.ip, count: 0})
                 .catch((err) => {
                   console.error(err);
                 });
