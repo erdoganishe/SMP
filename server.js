@@ -22,7 +22,7 @@ app.use(logger);
 app.use(visitCounterByIp);
 
 // Handle options credentials
-app.use(credentials)
+app.use(credentials);
 
 //Cross Origin Resource Sharing
 app.use(cors(corsOptions));
@@ -36,18 +36,21 @@ app.use(cookieParser());
 // static data
 app.use(express.static(path.join(__dirname, '/public')));
 app.use('/regpage', express.static(path.join(__dirname, '/public')));
+
 //router
 app.use('/', require('./routes/root'));
-app.use('/', require('./routes/regpage'));
-app.use('/register', require('./routes/register'));
-app.use('/auth', require('./routes/auth'));
-app.use('/refresh', require('./routes/refresh'));
-app.use('/logout', require('./routes/logout'));
+app.use('/regpage', require('./routes/regpage'));
 
+// user auth
+app.use('/register', require('./routes/auth/register'));
+app.use('/auth', require('./routes/auth/auth'));
+app.use('/refresh', require('./routes/auth/refresh'));
+app.use('/logout', require('./routes/auth/logout'));
 
-// Access token
-
-app.use('/food', require('./routes/api/food'));
+// (particular) with access token
+// api
+app.use('/api/food', require('./routes/api/food'));
+app.use('/api/recipe', require('./routes/api/recipe'));
 
 app.all('*', (req, res) => {
   res.status(404);
