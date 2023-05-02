@@ -41,9 +41,6 @@ const visitCounterByIp = async (req, res, next) => {
         Statistics.findOne()
           .then((statisticOne) => {
             Statistics.updateOne({}, { $set: { hits: statisticOne.hits + 1, total: statisticOne.total + 1 } })
-              .then(() => {
-                //console.log(`Update: ${statisticOne.hosts}, ${statisticOne.hits}, ${statisticOne.total}`);
-              })
               .catch((err) => {
                 console.error(err);
               });
@@ -68,9 +65,6 @@ const visitCounterByIp = async (req, res, next) => {
             Statistics.findOne()
               .then((statisticRow) => {
                 Statistics.updateOne({}, { $set: { hosts: statisticRow.hosts + 1, hits: statisticRow.hits + 1, total: statisticRow.total + 1 } })
-                  .then(() => {
-                    //console.log(`Create: ${statisticRow.hosts}, ${statisticRow.hits}, ${statisticRow.total}`);
-                  })
                   .catch((err) => {
                     console.error(err);
                   });

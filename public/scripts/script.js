@@ -5,8 +5,9 @@ window.onload = async function () {
   const response = await fetch("http://localhost:3500/food", {method: "GET"});// add "POST", "PUT"...
   const jsonData = await response.json();
   //console.log(jsonData);
-  jsonData.forEach(data => dishes.push(data.name));
+  jsonData.forEach(data => dishes.push({name: data.name, path: data.id}));
 
+  // set 12 first default 
   const images = [];
   for (let i = 1; i <= 12; i++) {
     const image = document.querySelector(`img[alt="Image ${i}"]`);
@@ -14,10 +15,11 @@ window.onload = async function () {
       images.push(image.getAttribute("src"));
     }
   }
+
   const imageNumbers = images.map(image => Number(image.match(/\d+/)[0]));
   const textBelowImages = document.querySelectorAll('.text-below-image');
   for (let i = 0; i < textBelowImages.length; i++) {
-    textBelowImages[i].innerHTML = dishes[imageNumbers[i] - 1];
+    textBelowImages[i].innerHTML = dishes[imageNumbers[i] - 1].name;
   }
 
   const prevButton = document.getElementById('prev-button');
@@ -39,7 +41,7 @@ window.onload = async function () {
     }
     const imageNumbers2 = images.map(image => Number(image.match(/\d+/)[0]));
     for (let i = 0; i < textBelowImages.length; i++) {
-      textBelowImages[i].innerHTML = dishes[imageNumbers2[i] - 1];
+      textBelowImages[i].innerHTML = dishes[imageNumbers2[i] - 1].name;
     }
 
 
@@ -61,7 +63,7 @@ window.onload = async function () {
 
     const imageNumbers2 = images.map(image => Number(image.match(/\d+/)[0]));
     for (let i = 0; i < textBelowImages.length; i++) {
-      textBelowImages[i].innerHTML = dishes[imageNumbers2[i] - 1];
+      textBelowImages[i].innerHTML = dishes[imageNumbers2[i] - 1].name;
     }
 
   });
