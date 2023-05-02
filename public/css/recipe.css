@@ -19,7 +19,80 @@ a {
     text-decoration: none;
     color: black;
 }
+.table-input{
+    width: 250px;
+    background: rgb(25, 25, 27);
+    height: 30px;
+    font-size: 20px;
+    color: white;
+}
+.consclusion-input{
+    width: 800px;
+    background: rgb(25, 25, 27);
+    height: 30px;
+    font-size: 20px;
+    color: white;
+}
+.history-input
+{
+    width: 800px;
+    background: rgb(25, 25, 27);
+    height: 30px;
+    font-size: 20px;
+    color: white;  
+}
+.step-input
+{
+    width: 800px;
+    background: rgb(25, 25, 27);
+    height: 30px;
+    font-size: 20px;
+    color: white;  
+}
+.ingridient-input{
+    width: 800px;
+    height: 300px;
+    font-size: 20px;
+    color: white;  
+    background: rgb(25, 25, 27); 
+}
+.button-upload
+{
+    text-align: center;
+    width: 200px;
+    height: 35px;
+    font-size: 28px;
+    background: #7f8fa6;
+    border-radius: 5px;
+}
+.button-upload:hover
+{
+    background: #3f444b;
+}
+.save-button
+{
+    text-align: center;
+    width: 400px;
+    height: 50px;
+    font-size: 28px;
+    background: #7f8fa6;
+    border-radius: 5px;
+    color: white;
+    margin-top: 50px;
+}
+.save-button:hover
+{
+    background: #3f444b;
+}
 
+select
+{
+    width: 250px;
+    font-size: 20px;
+    height: 30px;
+    color: white;
+    background: rgb(25, 25, 27);
+}
 /* Header */
 
 header {
@@ -95,9 +168,11 @@ main .dish {
     text-align: center;
 }
 
-main .dish h2 {
+main .dish input {
     font-size: 32px;
     margin: 20px 0;
+    color: white;  
+    background: rgb(25, 25, 27); 
 }
 
 main .dish table {

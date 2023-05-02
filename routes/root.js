@@ -10,5 +10,10 @@ router.get('/recipe(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '../views', 'recipe.html'));
 });
 
+router.get('/newRecipe(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, '../views', 'newRecipe.html'));
+});
+
+
 
 module.exports = router;

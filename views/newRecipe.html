@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="uk-UA">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food dictionary - add recipe</title>
+    <link rel="stylesheet" href="css/recipe.css">
+    <script src="scripts/newRecipe.js"></script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="logo.png" alt="Українська кухня"></a>
+        </div>
+        <h1>Food dictionary</h1>
+        <div class="search">
+            <input type="text" placeholder="Пошук...">
+            <button>Знайти</button>
+        </div>
+        <div class="login">
+            <a href="#">Увійти</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="dish">
+            <input placeholder="Назва страви">
+            <div class="details">
+                <table>
+                    <tr>
+                        <th>Складність:</th>
+                        <td id="hard-span">
+                            <select>
+                                <option value="Легка">Легка</option>
+                                <option value="Середня">Середня</option>
+                                <option value="Складна">Складна</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Час приготування:</th>
+                        <td id="time-span">
+                            <input class="table-input">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="history">
+                <input class="history-input" placeholder="Історія...">
+                <table>
+                    <tr>
+                        <td>
+                            <img class="food-img" src="img/addImage.jpg">
+                        </td>
+                        <td class="avatar-table-button">
+                            <div class="button-upload" id="button-upload-avatar-1">
+                                <input type="file" id="file-upload-1" style="display: none;">
+                                <a>Upload image</a>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="photo">
+                <table>
+                    <tr>
+                        <td>
+                            <img class="food-img" src="img/addImage.jpg">
+                        </td>
+                        <td class="avatar-table-button">
+                            <div class="button-upload" id="button-upload-avatar-2">
+                                <input type="file" id="file-upload-2" style="display: none;">
+                                <a>Upload image</a>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="instructions">
+                <p>Інгрідієнти:</p>
+                <textarea rows="10" cols="50" class="ingridient-input">
+                  
+                </textarea>
+                <input class="step-input" value="1.">
+                <input class="step-input" value="2.">
+                <input class="step-input" value="3.">
+                <input class="step-input" value="4.">
+                <input class="step-input" value="5.">
+                <table>
+                    <tr>
+                        <td>
+                            <img class="food-img" src="img/addImage.jpg">
+                        </td>
+                        <td class="avatar-table-button">
+                            <div class="button-upload" id="button-upload-avatar-3">
+                                <input type="file" id="file-upload-3" style="display: none;">
+                                <a>Upload image</a>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="conclusion">
+                <input class="consclusion-input" placeholder="Висновок...">
+            </div>
+            <button class="save-button">
+                Додати рецепт
+            </button>
+        </div>
+
+
+    </main>
+    <!-- Footer -->
+    <footer>
+        <div class="footer">
+
+            <div class="row">
+                <ul>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Our Services</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Career</a></li>
+                </ul>
+            </div>
+
+            <div class="row">
+                Food dictionary © 2023 FD - All rights reserved
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
