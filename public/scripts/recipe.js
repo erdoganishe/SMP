@@ -6,7 +6,7 @@ window.onload = async function () {
     const response = await fetch(`http://localhost:3500/api/recipe/${numberOfRecipe}`);// add "POST", "PUT"...
     const jsonData = await response.json();
     
-    //push data to array CHANGE IT !!!!!!!!!!
+    //push data to arra CHANGE IT !!!!!!!!!!
     dataArray.push(jsonData.difficulty);
     dataArray.push(jsonData.time);
     jsonData.steps.forEach(step => dataArray.push(step));
