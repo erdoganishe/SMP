@@ -9,11 +9,35 @@ const PORT = process.env.PORT || 3500;
 
 // connect to DB
 connectDB();
-const fs = require('fs');
-const path = require('path');
-const Food = require('./model/Food');
+//const fs = require('fs');
+//const path = require('path');
+// const Recipe = require('./model/Recipe');
 
-let i = 1;
+// const difficulty = 'Середня';
+// const time = "1 година";
+// const steps = [
+//   "Борщ - це одна з найбільш відомих страв української кухні. Він складається з багатьох інгредієнтів, таких як картопля, морква, буряк, капуста, цибуля та м'ясо (зазвичай свинина або говядина).",
+//   "500 грамів свинини<br>2-3 картоплини<br>1 цибуля<br>2-3 головки часнику<br>2-3 лаврових листа<br>Сіль та перець за смаком<br>3-4 літри води",
+//   "Наріжте м'ясо на кубики та підсмажте його до золотистого кольору у глибокій каструлі або сковороді.",
+//   "Додайте нарізану цибулю та підсмажте разом із м'ясом до м'якості.",
+//   "Додайте нарізані овочі (картоплю, моркву, буряк та капусту) та підсмажте їх разом з м'ясом та цибулею протягом кількох хвилин.",
+//   "Додайте нарізану капусту та тушкуйте її разом з іншими інгредієнтами протягом 10-15 хвилин.",
+//   "Додайте нарізану зелень (петрушку та кріп) та додайте сіль та перець за смаком. Потім долийте воду та доведіть до кипіння.",
+//   "Зменшіть вогонь та доведіть до готовності протягом близько 30-40 хвилин.",
+//   "Подаємо зі сметаною та часником.",
+//   "Борщ - це одна з найпопулярніших страв української кухні. Його можна знайти у більшості ресторанів, які пропонують національну кухню, та в домашніх колекціях рецептів. Борщ - це смачна, поживна та задовільна страва, яка відображає культурну спадщину України."
+// ]
+
+// const recipe = new Recipe({
+//   difficulty: difficulty,
+//   time: time,
+//   steps: steps
+// });
+// recipe.save().then((reci) => {
+//   console.log(reci);
+// })
+
+
 
 // Food.find({}).then((docs) => {
 //     docs.forEach((doc) => {
@@ -31,25 +55,6 @@ let i = 1;
 // });
 
 //console.log(readfile);
-
-
-//
-
-// Handle options credentials
-//app.use(credentials)
-
-//Cross Origin Resource Sharing
-//app.use(cors(corsOptions));
-
-//app.use(express.urlencoded({extended : false}));
-//app.use(express.json());
-
-//middleware for cookies
-//app.use(cookieParser());
-
-// static data
-//app.use(express.static(path.join(__dirname, '/public')));
-//app.use('/regpage', express.static(path.join(__dirname, '/public')));
 
 
 

@@ -2,7 +2,7 @@ const Food = require('../model/Food');
 
 const getAllFood = async (req, res) => {
     const food = await Food.find();
-    if(!food) return res.sendStatus(204).json({'message': 'No food!'});
+    if(!food) return res.sendStatus(204).json({'message': 'No food at all!'});
     res.json(food)
 }
 
