@@ -36,8 +36,8 @@ window.onload = async function () {
 
     for (let i = 0; i < 12; i++) {
 
-      images[i].src = `img/front_img/${dishes[currentFirst + i].path}.jpg`;
-      textBelowImages[i].innerHTML = dishes[currentFirst + i].name;
+      images[i].src = `img/front_img/${dishes[(currentFirst + i) % dishes.length].path}.jpg`;
+      textBelowImages[i].innerHTML = dishes[(currentFirst + i) % dishes.length].name;
 
     }
   });
@@ -50,8 +50,8 @@ window.onload = async function () {
 
     for (let i = 0; i < 12; i++) {
 
-      images[i].src = `img/front_img/${dishes[currentFirst + i].path}.jpg`;
-      textBelowImages[i].innerHTML = dishes[currentFirst + i].name;
+      images[i].src = `img/front_img/${dishes[(currentFirst + i) % dishes.length].path}.jpg`;
+      textBelowImages[i].innerHTML = dishes[(currentFirst + i) % dishes.length].name;
 
     }
   });
