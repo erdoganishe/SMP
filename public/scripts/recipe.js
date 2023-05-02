@@ -20,7 +20,7 @@ window.onload = async function () {
     images[0].src = `img/receipt_db/${numberOfRecipe}/history.png`;
     
     // dont work(hm, why?)))) CHANGE IT !!!!!!!!!!
-    images[1].src = `img/front_img/${numberOfRecipe}.jpg`;
+    //images[1].src = `img/front_img/${numberOfRecipe}.jpg`;
 
     images[2].src = `img/receipt_db/${numberOfRecipe}/step.png`;
     
