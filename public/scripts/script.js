@@ -6,7 +6,7 @@ window.onload = async function () {
   const jsonData = await response.json();
   //console.log(jsonData);
   jsonData.forEach(data => dishes.push({ name: data.name, path: data._id }));
-  console.log(dishes);
+  //console.log(dishes);
   // get array of img on page
   const images = [];
   for (let i = 1; i <= 12; i++) {
@@ -16,7 +16,7 @@ window.onload = async function () {
       image.src = `img/front_img/${dishes[i - 1].path}.jpg`;
     }
   }
-
+  let results = dishes;
   //set default text
   const textBelowImages = document.querySelectorAll('.text-below-image');
   for (let i = 0; i < textBelowImages.length; i++) {
@@ -27,17 +27,17 @@ window.onload = async function () {
   const nextButton = document.getElementById('next-button');
 
   let currentFirst = 0;
-  
+
   //previous button press event
 
   prevButton.addEventListener('click', function () {
-    currentFirst = currentFirst-12+dishes.length;
-    currentFirst = currentFirst % dishes.length;
+    currentFirst = currentFirst - 12 + results.length;
+    currentFirst = currentFirst % results.length;
 
     for (let i = 0; i < 12; i++) {
 
-      images[i].src = `img/front_img/${dishes[(currentFirst + i) % dishes.length].path}.jpg`;
-      textBelowImages[i].innerHTML = dishes[(currentFirst + i) % dishes.length].name;
+      images[i].src = `img/front_img/${results[(currentFirst + i) % results.length].path}.jpg`;
+      textBelowImages[i].innerHTML = results[(currentFirst + i) % results.length].name;
 
     }
   });
@@ -45,15 +45,47 @@ window.onload = async function () {
   //next button press event
 
   nextButton.addEventListener('click', function () {
-    currentFirst = currentFirst+12;
-    currentFirst = currentFirst % dishes.length;
+    currentFirst = currentFirst + 12;
+    currentFirst = currentFirst % results.length;
 
     for (let i = 0; i < 12; i++) {
 
-      images[i].src = `img/front_img/${dishes[(currentFirst + i) % dishes.length].path}.jpg`;
-      textBelowImages[i].innerHTML = dishes[(currentFirst + i) % dishes.length].name;
+      images[i].src = `img/front_img/${results[(currentFirst + i) % results.length].path}.jpg`;
+      textBelowImages[i].innerHTML = results[(currentFirst + i) % results.length].name;
 
     }
   });
 
+
+  const findInput = document.getElementById('find-input');
+
+  findInput.addEventListener('input', () => {
+    for (let i = 0; i < 12; i++) {
+      textBelowImages[i].style.fontSize = '28px'
+      images[i].style.display = 'inline';
+    }
+    const searchQuery = findInput.value.toLowerCase();
+    results = dishes.filter(dish => dish.name.toLowerCase().includes(searchQuery));
+    console.log(results.length ? results : 'hui');
+    if (results.length == 0) {
+      for (let i = results.length; i < 12; i++) {
+        images[i].style.display = 'none';
+        textBelowImages[i].style.fontSize = '0'
+      }
+      images[0].style.display = 'inline';
+      images[0].src = `img/notfound.png`;
+    }
+    else {
+      for (let i = 0; i < 12; i++) {
+        images[i].src = `img/front_img/${results[(currentFirst + i) % results.length].path}.jpg`;
+        textBelowImages[i].innerHTML = results[(currentFirst + i) % results.length].name;
+      }
+      if (results.length < 12) {
+        for (let i = results.length; i < 12; i++) {
+          images[i].style.display = 'none';
+          textBelowImages[i].style.fontSize = '0'
+        }
+      }
+    }
+  });
 };

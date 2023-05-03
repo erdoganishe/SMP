@@ -44,6 +44,14 @@ header form {
     display: flex;
     align-items: center;
 }
+#find-input
+{
+    font-size: 30px;
+    height: 40px;
+    width: 250px;
+    color: white;
+    background: #000;
+}
 
 header form input[type="text"] {
     padding: 8px;
