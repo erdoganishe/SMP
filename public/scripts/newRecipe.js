@@ -19,7 +19,10 @@ document.addEventListener("DOMContentLoaded", function () {
             body: formData
         })
         const json = await response.json();
-        console.log(json);
+        const response2 = await fetch('http://localhost:3500/newRecipeArray', {
+            method: 'POST',
+            body: formData
+        })
     }
     
     // form.addEventListener('submit', (e) => {
