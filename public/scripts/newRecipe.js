@@ -6,22 +6,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     const buttonUploadBg1 = document.getElementById("button-upload-avatar-1");
-    const fileUploadbg1 = document.getElementById("file-upload-1");
+    const sendFiles = async () => {
+        const fileUploadbg1 = document.getElementById("file-upload-1").files;
+        const formData = new FormData();
+        Object.keys(fileUploadbg1).forEach(key => { buttonUploadBg1.append(fileUploadbg1.item(key).name, fileUploadbg1) })
 
-    buttonUploadBg1.addEventListener("click", () => {
-        fileUploadbg1.click();
-    });
-    const Images = document.querySelector('.food-img');
-    fileUploadbg1.addEventListener("change", (event) => {
-        const file = event.target.files[0];
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = () => {
-            //Тут дати новий src, я хз як ти це будеш робити 
-            //Images[0].src ==
-            imgReady[0] = true;
-        };
-    });
+        const response = await fetch('http://localhost:3500/upload', {method: 'POST', body: FormData});
+        const json = await response.json()
+        console.log(json)
+    }
+
+
+    // buttonUploadBg1.addEventListener("click", () => {
+    //     fileUploadbg1.click();
+    // });
+    // const Images = document.querySelector('.food-img');
+    // fileUploadbg1.addEventListener("change", (event) => {
+    //     const file = event.target.files[0];
+    //     const reader = new FileReader();
+    //     reader.readAsDataURL(file);
+    //     reader.onload = () => {
+    //         //Тут дати новий src, я хз як ти це будеш робити 
+    //         //Images[0].src ==
+    //         imgReady[0] = true;
+    //     };
+    // });
 
     const buttonUploadBg2 = document.getElementById("button-upload-avatar-2");
     const fileUploadbg2 = document.getElementById("file-upload-2");
@@ -59,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     const inputArray = document.querySelectorAll('input');
     //console.log(inputArray);
-    
+
 
     saveButton.addEventListener("click", function () {
         for (let i = 0; i < 3; i++) {

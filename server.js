@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const cors = require('cors');
+const fileUpload = require("express-fileupload")
 const corsOptions = require('./config/corsOptions');
 const {logger} = require('./middleware/logEvents');
 
@@ -51,6 +52,9 @@ app.use('/logout', require('./routes/auth/logout'));
 // api
 app.use('/api/food', require('./routes/api/food'));
 app.use('/api/recipe', require('./routes/api/recipe'));
+
+//upload
+app.post('/upload', fileUpload({createParentPath: true}), (req, res)=> {const files = req.files; console.log(files); return res.json({status: 'logged', message: 'logged'})})
 
 app.all('*', (req, res) => {
   res.status(404);
