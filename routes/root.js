@@ -26,7 +26,7 @@ router.route('/newRecipe(.html)?')
             console.log(files);
 
             Object.keys(files).forEach(key => {
-                const filePath = path.join(__dirname, '../public/img', 'test', `123${path.extname(files[key].name)}`);
+                const filePath = path.join(__dirname, '../public/img', 'test', /*`123${path.extname(files[key].name)}`*/ files[key].name);
 
                 files[key].mv(filePath, (err) => {
                     if(err) return res.status(500).json({ status: "error", messoge: err})
@@ -35,6 +35,10 @@ router.route('/newRecipe(.html)?')
 
             return res.json({ status: "success", message: Object.keys(files).toString() });
         });
+
+router.post('/newRecipeArray', (req, res) => {
+    
+})
 
 router.get('/roflpage(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '../views', 'roflpage.html'));

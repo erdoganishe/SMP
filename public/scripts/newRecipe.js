@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //formImage 1
     const form = document.getElementById('uploadForm1')
-    const sendFile1 = async () => {
+    const sendFile1 = async (dataArray1) => {
         imgReady[0] = true;
         // Object 
         const myFiles = document.getElementById('myFiles').files
@@ -78,13 +78,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     saveButton.addEventListener("click", function () {
-        sendFile1();
-        for (let i = 0; i < 3; i++) {
-            if (!imgReady[0]) {
-                alert("Заповніть картинки!");
-                return;
-            }
-        }
+        // for (let i = 0; i < 3; i++) {
+        //     if (!imgReady[0]) {
+        //         alert("Заповніть картинки!");
+        //         return;
+        //     }
+        // }
 
         if (inputArray[1].value != "") { dataArray.push(inputArray[1].value); }
         else { alert("Введіть назву блюда"); return; }
@@ -112,6 +111,6 @@ document.addEventListener("DOMContentLoaded", function () {
         else { alert("Введіть висновок блюда"); return; }
         console.log(dataArray);
 
-
+        sendFile1(dataArray);
     });
 });
