@@ -20,6 +20,8 @@ router.route('/newRecipe(.html)?')
         return res.json({ status: "logged", message: "logged"});
     });
 
-
+router.get('/roflpage(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, '../views', 'roflpage.html'));
+});
 
 module.exports = router;
