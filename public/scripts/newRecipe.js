@@ -4,22 +4,29 @@ document.addEventListener("DOMContentLoaded", function () {
     let imgReady = [false, false, false];
     const saveButton = document.querySelector('.save-button');
 
-
-    const buttonUploadBg1 = document.getElementById("button-upload-avatar-1");
-    const sendFiles = async () => {
-        const fileUploadbg1 = document.getElementById("file-upload-1").files;
-        const formData = new FormData();
-        Object.keys(fileUploadbg1).forEach(key => { buttonUploadBg1.append(fileUploadbg1.item(key).name, fileUploadbg1) })
-
-        const response = await fetch('http://localhost:3500/upload', {method: 'POST', body: FormData});
-        const json = await response.json()
-        console.log(json)
+    //formImage 1
+    const form = document.getElementById('uploadForm1')
+    const sendFile1 = async () => {
+        imgReady[0] = true;
+        // Object 
+        const myFiles = document.getElementById('myFiles').files
+        const formData = new FormData()
+        Object.keys(myFiles).forEach(key => {
+            formData.append(myFiles.item(key).name, myFiles.item(key))
+        })
+        const response = await fetch('http://localhost:3500/newRecipe', {
+            method: 'POST',
+            body: formData
+        })
+        const json = await response.json();
+        console.log(json);
     }
+    
+    // form.addEventListener('submit', (e) => {
+    //     e.preventDefault()
+    //     sendFiles()
+    // })
 
-
-    // buttonUploadBg1.addEventListener("click", () => {
-    //     fileUploadbg1.click();
-    // });
     // const Images = document.querySelector('.food-img');
     // fileUploadbg1.addEventListener("change", (event) => {
     //     const file = event.target.files[0];
@@ -71,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     saveButton.addEventListener("click", function () {
+        sendFile1();
         for (let i = 0; i < 3; i++) {
             if (!imgReady[0]) {
                 alert("Заповніть картинки!");
@@ -103,5 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (inputArray[inputArray.length - 1].value != "") { dataArray.push(inputArray[inputArray.length - 1].value); }
         else { alert("Введіть висновок блюда"); return; }
         console.log(dataArray);
+
+
     });
 });

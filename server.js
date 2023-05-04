@@ -53,9 +53,6 @@ app.use('/logout', require('./routes/auth/logout'));
 app.use('/api/food', require('./routes/api/food'));
 app.use('/api/recipe', require('./routes/api/recipe'));
 
-//upload
-app.post('/upload', fileUpload({createParentPath: true}), (req, res)=> {const files = req.files; console.log(files); return res.json({status: 'logged', message: 'logged'})})
-
 app.all('*', (req, res) => {
   res.status(404);
   if(req.accepts('html')){
