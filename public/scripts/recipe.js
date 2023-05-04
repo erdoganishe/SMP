@@ -5,6 +5,8 @@ window.onload = async function () {
     // get data from db
     const response = await fetch(`http://localhost:3500/api/recipe/${numberOfRecipe}`);// add "POST", "PUT"...
     const jsonData = await response.json();
+    const response2 = await fetch(`http://localhost:3500/api/food/${numberOfFood}`);// add "POST", "PUT"...
+    const jsonData2 = await response2.json();
     
     const hardSpan = document.getElementById("hard-span");
     const timeSpan = document.getElementById("time-span");
