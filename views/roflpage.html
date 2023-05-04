@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,12 +9,28 @@
     <script src="scripts/rofl.js"></script>
     <link rel="stylesheet" href="css/rofl.css">
 </head>
+
 <body>
-    <h2>Обчислити відстань у кілометрах між двома точками на карті, заданими координатами</h2>
-    <input class = "coordinate-input" placeholder="x1">
-    <input class = "coordinate-input" placeholder="y1">
-    <input class = "coordinate-input" placeholder="x2">
-    <input class = "coordinate-input" placeholder="y2">
-    <label class="output"></label>
+    <table>
+        <tr>
+            <td>
+                <h2>Обчислити відстань у кілометрах між двома точками на карті, заданими координатами</h2>
+                <input class="coordinate-input" placeholder="x1">
+                <input class="coordinate-input" placeholder="y1">
+                <input class="coordinate-input" placeholder="x2">
+                <input class="coordinate-input" placeholder="y2">
+                <label class="output"></label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="color-input">Введіть назву кольору:</label>
+                <input type="text" id="color-input" placeholder="Наприклад, red">
+                <label for="color-output">Колір:</label>
+                <div id="color-output"></div>
+            </td>
+        </tr>
+    </table>
 </body>
+
 </html>

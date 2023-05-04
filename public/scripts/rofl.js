@@ -53,11 +53,95 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Додаємо обробник події введення координат для кожного інпуту
-    coordinateInputs.forEach(input => {
-        input.addEventListener('input', handleCoordinateInput);
-    });
-
+    const colors = {
+        black: '#000000',
+        white: '#FFFFFF',
+        red: '#FF0000',
+        green: '#00FF00',
+        blue: '#0000FF',
+        yellow: '#FFFF00',
+        pink: '#FFC0CB',
+        purple: '#800080',
+        orange: '#FFA500',
+        teal: '#008080',
+        navy: '#000080',
+        gray: '#808080',
+        silver: '#C0C0C0',
+        gold: '#FFD700',
+        maroon: '#800000',
+        olive: '#808000',
+        fuchsia: '#FF00FF',
+        lime: '#00FF00',
+        aqua: '#00FFFF',
+        indigo: '#4B0082',
+        chocolate: '#D2691E',
+        // Додані кольори
+        aliceblue: '#F0F8FF',
+        antiquewhite: '#FAEBD7',
+        aquamarine: '#7FFFD4',
+        azure: '#F0FFFF',
+        beige: '#F5F5DC',
+        bisque: '#FFE4C4',
+        blanchedalmond: '#FFEBCD',
+        blueviolet: '#8A2BE2',
+        brown: '#A52A2A',
+        burlywood: '#DEB887',
+        cadetblue: '#5F9EA0',
+        chartreuse: '#7FFF00',
+        coral: '#FF7F50',
+        cornflowerblue: '#6495ED',
+        cornsilk: '#FFF8DC',
+        crimson: '#DC143C',
+        cyan: '#00FFFF',
+        darkblue: '#00008B',
+        darkcyan: '#008B8B',
+        darkgoldenrod: '#B8860B',
+        darkgray: '#A9A9A9',
+        darkgrey: '#A9A9A9',
+        darkgreen: '#006400',
+        darkkhaki: '#BDB76B',
+        darkmagenta: '#8B008B',
+        darkolivegreen: '#556B2F',
+        darkorange: '#FF8C00',
+        darkorchid: '#9932CC',
+        darkred: '#8B0000',
+        darksalmon: '#E9967A',
+        darkseagreen: '#8FBC8F',
+        darkslateblue: '#483D8B',
+        darkslategray: '#2F4F4F',
+        darkslategrey: '#2F4F4F',
+        darkturquoise: '#00CED1',
+        darkviolet: '#9400D3',
+        deeppink: '#FF1493',
+        deepskyblue: '#00BFFF',
+        dimgray: '#696969',
+        dimgrey: '#696969',
+        dodgerblue: '#1E90FF',
+        firebrick: '#B22222',
+        floralwhite: '#FFFAF0',
+        forestgreen: '#228B22',
+        gainsboro: '#DCDCDC',
+        ghostwhite: '#F8F8FF',
+        goldenrod: '#DAA520'      
+      };
+      
+      
+      const input = document.querySelector('#color-input');
+      const output = document.querySelector('#color-output');
+      
+      input.addEventListener('input', function() {
+        const colorName = input.value.toLowerCase().trim();
+        
+        if (colorName in colors) {
+          const colorCode = colors[colorName];
+          output.textContent = colorCode;
+          output.style.backgroundColor = colorCode;
+        } else {
+          output.textContent = 'Invalid color name';
+          output.style.backgroundColor = '';
+        }
+      });
+      
 
 
 

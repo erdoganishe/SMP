@@ -23,3 +23,21 @@ body {
     font-size: 30px;
 
 }
+#color-input
+{
+    color: white;
+    background: #000;
+    width: 300px;
+    height: 45px;
+    font-size: 30px;
+    margin: 30px;
+}
+#color-output
+{
+    color: white;
+    background: #000;
+    width: 300px;
+    height: 45px;
+    font-size: 30px;
+    margin: 30px;
+}
