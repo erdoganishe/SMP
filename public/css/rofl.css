@@ -41,3 +41,32 @@ body {
     font-size: 30px;
     margin: 30px;
 }
+#time-input
+{
+    color: white;
+    background: #000;
+    width: 300px;
+    height: 45px;
+    font-size: 30px;
+    margin: 30px;
+}
+#time-output
+{
+    color: white;
+    background: #000;
+    width: 300px;
+    height: 45px;
+    font-size: 30px;
+    margin: 30px;
+}
+#time-left-output{
+    color: white;
+    background: #000;
+    width: 300px;
+    height: 45px;
+    font-size: 30px;
+    margin: 30px;
+}
+label{
+    font-size: 28px;
+}
