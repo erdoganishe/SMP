@@ -1,7 +1,7 @@
-const foodRecipe = require('../model/FoodRecipe');
+const FoodRecipe = require('../model/FoodRecipe');
 
 const getAllFoodRecipe = async (req, res) => {
-    const foodRecipe = await foodRecipe.find();
+    const foodRecipe = await FoodRecipe.find();
     if(!foodRecipe) return res.sendStatus(204).json({'message': 'No recipe at all!'});
     res.json(foodRecipe)
 }
@@ -12,7 +12,7 @@ const createNewFoodRecipe = async (req, res) => {
     }
 
     try{
-        const result = await foodRecipe.create({
+        const result = await FoodRecipe.create({
             name: req.body.name,
             difficulty: req.body?.difficulty,
             time: req.body?.time,
@@ -30,7 +30,7 @@ const updateFoodRecipe = async (req, res) => {
         return res.status(400).json({'message': 'ID is required!'});
     }
 
-    const foodRecipe = await foodRecipe.findOne({ _id: req.body.id}).exec();
+    const foodRecipe = await FoodRecipe.findOne({ _id: req.body.id}).exec();
 
     if(!foodRecipe){
         return res.status(204).json({"message": `No recipe with ID ${req.body.id}.`});
@@ -47,18 +47,18 @@ const updateFoodRecipe = async (req, res) => {
 const deleteFoodRecipe = async (req, res) => {
     if(!req?.body?.id) return res.status(400).json({ 'message': 'Recipe ID required'});
 
-    const foodRecipe = await foodRecipe.findOne({ _id: req.body.id}).exec();
+    const foodRecipe = await FoodRecipe.findOne({ _id: req.body.id}).exec();
     if(!foodRecipe){
         return res.status(204).json({"message": `No recipe with ID ${req.body.id}.`});
     }
-    const result = await foodRecipe.deleteOne({ _id: req.body.id});
+    const result = await FoodRecipe.deleteOne({ _id: req.body.id});
     res.json(result);
 }
 
 const getFoodRecipe = async (req, res) => {
     if(!req?.params?.id) return res.status(400).json({ 'message': 'Recipe ID required'});
 
-    const foodRecipe = await foodRecipe.findOne({ _id: req.params.id}).exec();
+    const foodRecipe = await FoodRecipe.findOne({ _id: req.params.id}).exec();
     if(!foodRecipe){
         return res.status(204).json({"message": `No recipe with ID ${req.params.id}.`});
     }
