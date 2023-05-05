@@ -51,7 +51,7 @@
 
       if (response.ok) {
         localStorage.setItem('accessToken', data.accessToken);
-        window.location.href = '/protected-page.html';
+        window.location.href = '/';
       } else {
         alert(data.message ?? "Error. Try again later");
       }

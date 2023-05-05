@@ -31,19 +31,19 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     document.querySelector('#register-btn').addEventListener('click', () => {
-        const email = document.querySelector('#email').value;
-        const password = document.querySelector('#password').value;
-        const confirmPassword = document.querySelector('#confirm-password').value;
-        function isValidEmail(email) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return emailRegex.test(email);
-        }
-        if (password === confirmPassword && !emails.includes(email) && isValidEmail(email)) {
-            console.log(email, " ", password, " ", confirmPassword, " ", isVisible);
-        }
-        else {
-            console.log("false");
-        }
+        // const email = document.querySelector('#email').value;
+        // const password = document.querySelector('#password').value;
+        // const confirmPassword = document.querySelector('#confirm-password').value;
+        // function isValidEmail(email) {
+        //     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        //     return emailRegex.test(email);
+        // }
+        // if (password === confirmPassword && !emails.includes(email) && isValidEmail(email)) {
+        //     console.log(email, " ", password, " ", confirmPassword, " ", isVisible);
+        // }
+        // else {
+        //     console.log("false");
+        // }
     });
     const anyoneCheckbox = document.getElementById("check-writer");
     const nooneCheckbox = document.getElementById("check-reader");
@@ -65,4 +65,30 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log(isVisible);
     });
 
+
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const registrButton = document.getElementById('register-btn');
+
+    registrButton.addEventListener('click', async () => {
+        const email = emailInput.value;
+        const password = passwordInput.value;
+
+        const response = await fetch('/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ 'user': email, 'pwd': password })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            //localStorage.setItem('accessToken', data.accessToken);
+            window.location.href = '/login';
+        } else {
+            alert(data.message ?? "Error. Try again later");
+        }
+    });
 });
