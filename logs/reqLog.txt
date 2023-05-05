@@ -6581,6 +6581,7 @@
 20230505	15:39:53	7b18bf8d-a0fb-4f4a-98cd-9913be1464d9	GET	undefined	/img/receipt_db/645143264b759c5faf4eb1f3/history.png
 20230505	15:39:53	7d0a6f6e-d47f-4950-8c4a-6aa6699a6fab	GET	undefined	/img/front_img/645032f291c28a8ab5d7ddd7.jpg
 20230505	15:39:53	25f0df56-0e7d-4950-80dd-abfdb2e201c7	GET	undefined	/img/receipt_db/645143264b759c5faf4eb1f3/step.png
+<<<<<<< Updated upstream
 20230505	15:55:00	20ca77e4-64c6-4538-85eb-1e119710b35c	GET	undefined	/img/front_img/645032f291c28a8ab5d7ddd7.jpg
 20230505	15:55:00	17920546-5de5-4628-9af9-da08119fca10	GET	undefined	/img/front_img/645032f391c28a8ab5d7ddda.jpg
 20230505	15:55:00	d564c2a8-db66-477c-8d92-d7de1ba42b71	GET	undefined	/img/front_img/645032f391c28a8ab5d7dddc.jpg
@@ -6789,6 +6790,7 @@
 20230505	16:02:49	1b0426bc-45ae-44f2-86b4-3aea4e1d6937	GET	undefined	/img/front_img/645032f491c28a8ab5d7ddf6.jpg
 20230505	16:02:49	d8318b47-3344-4bc4-84fd-1aeda7d97d09	GET	undefined	/img/front_img/645032f491c28a8ab5d7ddf4.jpg
 20230505	16:02:49	5a3eea7f-5cd3-4d0d-8604-2a5b682b0b38	GET	undefined	/img/front_img/645032f491c28a8ab5d7ddf2.jpg
+<<<<<<< HEAD
 20230505	16:09:31	0422ddae-c521-4401-a4ff-09dddfafe916	GET	undefined	/
 20230505	16:09:31	d161b5d1-bcd3-4a49-a53a-0fcea0473d22	GET	undefined	/css/styles.css
 20230505	16:09:31	c0361a05-1150-4573-94e5-fb1a0204797d	GET	undefined	/scripts/script.js
@@ -6828,3 +6830,43 @@
 20230505	16:09:42	51fe3cb0-d8b6-4e3b-8ea8-4a1dd11e42ce	GET	undefined	/img/front_img/645032f491c28a8ab5d7ddf6.jpg
 20230505	16:09:42	ba4ae5bc-f7c4-4f95-bdc6-a5f941707842	GET	undefined	/img/front_img/645032f491c28a8ab5d7ddf4.jpg
 20230505	16:09:42	9afcc26a-ae37-4d61-9808-853738cb869d	GET	undefined	/img/front_img/645032f491c28a8ab5d7ddf2.jpg
+=======
+=======
+20230505	15:04:55	29d3ec46-ca89-4b90-b34c-1d0a756bc466	GET	undefined	/recipe
+20230505	15:04:56	1d2299ba-ada9-4210-8ea2-5e76800c930f	GET	undefined	/css/recipe.css
+20230505	15:04:56	b9fffe8c-242e-433e-a851-486e87bd2603	GET	undefined	/scripts/recipe.js
+20230505	15:04:56	249aaff2-7b46-4f80-84a7-0f84fa8dd752	GET	undefined	/img/logo.jpg
+20230505	15:04:56	07734722-78c0-4d97-9660-ca486f58f25f	GET	undefined	/img/Recipe_bg.png
+20230505	15:04:56	39776436-9031-4ab4-97cc-d4a1aa79321d	GET	undefined	/favicon.ico
+20230505	15:04:58	ddf5fe00-836d-4ca6-8e08-b4acd89d784d	GET	undefined	/recipe
+20230505	15:04:58	9f8a1ec1-fe6d-40bf-b698-b780d86f1553	GET	undefined	/css/recipe.css
+20230505	15:04:58	cf687870-ddd6-4b06-bf81-dc2832069c35	GET	undefined	/scripts/recipe.js
+20230505	15:04:58	7cd5d3b8-3b7a-4038-bf1a-8f30e89c2536	GET	undefined	/img/Recipe_bg.png
+20230505	15:04:58	f19e6606-7504-4e82-b1a7-ffcd9ac0f083	GET	undefined	/img/logo.jpg
+20230505	15:05:03	82acd0d7-5829-4134-b37f-6abfe25cf6aa	GET	undefined	/
+20230505	15:05:04	01204eb6-dac1-4b4c-b025-85a46a5fc071	GET	undefined	/css/styles.css
+20230505	15:05:04	00b88e3a-551e-4d65-9beb-342adcf368e3	GET	undefined	/scripts/script.js
+20230505	15:05:04	b512a30b-b9a6-49e4-a45a-4e9861fd3373	GET	undefined	/img/Recipe_bg.png
+20230505	15:05:04	98a62d4a-fef5-443e-9159-d54294225521	GET	undefined	/img/logo.jpg
+20230505	15:05:04	de1a1cb4-df77-45a9-96d1-cbec6f9bca2b	GET	undefined	/api/food
+20230505	15:05:04	af6119ee-d126-4e76-ac45-97a46c732315	GET	undefined	/favicon.ico
+20230505	15:05:04	d5cad233-05e4-43a3-a53b-d3ff774ee9ef	GET	undefined	/img/front_img/645032f291c28a8ab5d7ddd7.jpg
+20230505	15:05:04	1c6cb38d-146e-4efc-a14c-e0ecd255f26b	GET	undefined	/img/front_img/645032f391c28a8ab5d7ddda.jpg
+20230505	15:05:04	c7f4c213-3785-4856-bd78-3d11dc77d4da	GET	undefined	/img/front_img/645032f391c28a8ab5d7dddc.jpg
+20230505	15:05:04	dbb27a44-c586-465a-bc3f-ca3939c6d9ca	GET	undefined	/img/front_img/645032f391c28a8ab5d7ddde.jpg
+20230505	15:05:04	d93192c5-b630-4c89-a737-b63abdbeb6a2	GET	undefined	/img/front_img/645032f391c28a8ab5d7dde0.jpg
+20230505	15:05:04	57311fe3-2096-4bbb-86d9-814ba90038c1	GET	undefined	/img/front_img/645032f391c28a8ab5d7dde2.jpg
+20230505	15:05:04	533414da-1f29-4d3d-b097-2825b33c8061	GET	undefined	/img/front_img/645032f391c28a8ab5d7dde8.jpg
+20230505	15:05:04	b7f4e5e1-84f7-46e7-aad9-605539701838	GET	undefined	/img/front_img/645032f391c28a8ab5d7dde4.jpg
+20230505	15:05:04	fcea6ad4-a82e-4cd4-b132-feb8fa25b569	GET	undefined	/img/front_img/645032f391c28a8ab5d7dde6.jpg
+20230505	15:05:04	d2d1a5fb-2151-4589-94de-64d6733dc8c5	GET	undefined	/img/front_img/645032f491c28a8ab5d7ddea.jpg
+20230505	15:05:04	8426320a-72df-4396-ad6f-22b254d9e79e	GET	undefined	/img/front_img/645032f491c28a8ab5d7ddec.jpg
+20230505	15:05:04	bb9c6816-c801-483a-be00-9b6d3cb53ff8	GET	undefined	/img/front_img/645032f491c28a8ab5d7ddee.jpg
+20230505	15:05:05	dd1c78d9-464f-4675-9bc3-4fa7ad24b188	GET	undefined	/recipe.html?id=645032f291c28a8ab5d7ddd7
+20230505	15:05:05	0bcd2bc0-75b7-4175-b5a6-a9a9387f14e3	GET	undefined	/scripts/recipe.js
+20230505	15:05:05	fee41108-0167-4667-9b64-fdc7560e5044	GET	undefined	/css/recipe.css
+20230505	15:05:05	cd6f32b8-1dfa-42f6-a88b-212d0d9bb86a	GET	undefined	/img/Recipe_bg.png
+20230505	15:05:05	48f558b7-31c7-4d95-b37d-eb9f8ae8f8b6	GET	undefined	/img/logo.jpg
+20230505	15:05:30	d2531392-2398-4ed4-88fb-712aace1a3ca	GET	undefined	/api/food/$%7BnumberOfFood%7D
+>>>>>>> Stashed changes
+>>>>>>> main

@@ -9,8 +9,7 @@ const fileExtLimiter = require('../middleware/fileExtLimiter');
 const fileSizeLimiter = require('../middleware/fileSizeLimiter');
 
 const foodController = require('../controllers/foodController');
-const Recipe = require('../model/Recipe');
-const Food = require('../model/Food');
+const FoodRecipe = require('../model/FoodRecipe');
 
 router.get('^/$|index(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '../views', 'index.html'));
@@ -49,7 +48,8 @@ router.post('/newRecipeArray', async (req, res) => {
     console.log();
 
     try {
-        const result = await Recipe.create({
+        const result = await FoodRecipe.create({
+            name: req.body.name,
             difficulty: req.body.difficulty,
             time: req.body.time,
             steps: [req.body.history, req.body.ingridients, ...req.body.steps, req.body.conclusion]
@@ -58,11 +58,6 @@ router.post('/newRecipeArray', async (req, res) => {
         console.log(result.id);
 
         //rename and move img to folder
-
-        const result2 = await Food.create({
-            name: req.body.name
-        });
-        console.log(result2.id);
         let num = 1;
         var files = fs.readdirSync(path.join(__dirname, '../public/img/test/',));
         Object.keys(files).forEach(key => {
@@ -71,7 +66,7 @@ router.post('/newRecipeArray', async (req, res) => {
                     path.join(__dirname, '../public/img/test/', files[key]),
                     path.join(__dirname,
                         '../public/img/front_img/',
-                        `${result2.id}${path.extname(files[key])}`), (err) => {
+                        `${result.id}${path.extname(files[key])}`), (err) => {
                             if (err) {
                                 console.log(err);
                             }
