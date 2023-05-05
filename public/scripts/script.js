@@ -93,11 +93,10 @@ window.onload = async function () {
   });
   // Отримуємо всі картинки на сторінці
   // Додаємо обробник події "click" до кожної картинки
-  images.forEach((image, i) => {
-    image.addEventListener('click', () => {
-      // Переходимо на нову сторінку та передаємо змінну dishes[i]._id у параметрі URL
-      window.location.href = `recipe.html?id=${dishes[i+currentFirst].path}`;
+  for (let i =0;i<12;i++){
+    images[i].addEventListener('click', () => {
+      window.location.href = `recipe.html?id=${results[i+currentFirst].path}`;
     });
-  });
+  }
 
 };
