@@ -1,31 +1,62 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
-  <title>Registration</title>
+  <title>Login</title>
   <link rel="stylesheet" href="css/regpage/styles.css">
 </head>
+
 <body>
   <div class="container">
     <table>
-        <tr>
-            <td colspan="2">
-            <h1 class="title">Login</h1>
-            </td>
-        </tr>
+      <tr>
+        <td colspan="2">
+          <h1 class="title">Login</h1>
+        </td>
+      </tr>
       <tr>
         <td class="label">E-mail:</td>
-        <td><input type="text" class="input"></td>
+        <td><input type="text" class="input" id="email"></td>
       </tr>
       <tr>
         <td class="label">Password:</td>
-        <td><input type="password" class="input"></td>
+        <td><input type="password" class="input" id="password"></td>
       </tr>
       <tr>
         <td></td>
-        <td><button class="button">Login</button></td>
+        <td><button class="button" id="login-btn">Login</button></td>
       </tr>
     </table>
   </div>
+
+  <script>
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const loginButton = document.getElementById('login-btn');
+
+    loginButton.addEventListener('click', async () => {
+      const email = emailInput.value;
+      const password = passwordInput.value;
+
+      const response = await fetch('/auth', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ 'user': email, 'pwd': password })
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        localStorage.setItem('accessToken', data.accessToken);
+        window.location.href = '/protected-page.html';
+      } else {
+        alert(data.message ?? "Error. Try again later");
+      }
+    });
+  </script>
 </body>
+
 </html>

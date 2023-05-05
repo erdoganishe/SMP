@@ -6,9 +6,9 @@ const handleLogin = async (req, res) => {
     const { user, pwd } = req.body;
     if (!user || !pwd) return res.status(400).json({ 'message': 'Username and password are required.' });
     const foundUser = await User.findOne({username: user}).exec();
-    if (!foundUser) res.sendStatus(401);
-
-    const match = await bcrypt.compare(pwd, foundUser.password);
+    if (!foundUser) return res.status(401).json({ 'message': 'No such user' });
+    
+    const match = bcrypt.compare(pwd, foundUser.password);
     if (match) {
         const roles = Object.values(foundUser.roles);
         //create JWTs
@@ -33,7 +33,7 @@ const handleLogin = async (req, res) => {
         result = await foundUser.save();
         console.log(result);
 
-        res.cookie('jwt', refreshToken, { httpOnly: true/*, sameSite: 'None', secure: true*/, maxAge: 24 * 60 * 60 * 1000 })
+        res.cookie('jwt', refreshToken, { httpOnly: true, sameSite: 'None', secure: true, maxAge: 24 * 60 * 60 * 1000 })
         res.json({ accessToken })
     } else {
         res.sendStatus(401);
