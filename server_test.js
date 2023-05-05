@@ -9,7 +9,34 @@ const PORT = process.env.PORT || 3500;
 
 // connect to DB
 connectDB();
-//const fs = require('fs');
+
+// const Recipe = require('./model/Recipe');
+// const Food = require('./model/Food');
+// const FoodRecipe = require('./model/FoodRecipe');
+// const fs = require('fs');
+// const { ObjectId } = require('mongodb');
+
+// const func = async function () {
+//   const foodRecipes = await FoodRecipe.find({});
+
+//   foodRecipes.forEach(async (foodrec) => {
+//     //const doc = FoodRecipe.findOne({_id: ObjectId(food.id.toString())});
+//     //console.log(food.id);
+//     //doc_id = ObjectId(food.id.toString()
+
+//     const newId = await Food.findOne({ name: foodrec.name });
+//     //console.log(newId.id);
+
+//     const doc = await FoodRecipe.findById(foodrec.id);
+//     //console.log(doc);
+//     doc._id = new ObjectId(newId.id);
+//     FoodRecipe.insertMany(doc);
+//     FoodRecipe.findByIdAndRemove(foodrec.id);
+//   })
+// }
+
+// func();
+
 //const path = require('path');
 // const Recipe = require('./model/Recipe');
 

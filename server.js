@@ -52,6 +52,7 @@ app.use('/logout', require('./routes/auth/logout'));
 // api
 app.use('/api/food', require('./routes/api/food'));
 app.use('/api/recipe', require('./routes/api/recipe'));
+app.use('/api/food_recipe', require('./routes/api/foodRecipe'));
 
 app.all('*', (req, res) => {
   res.status(404);

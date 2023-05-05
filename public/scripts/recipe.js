@@ -1,6 +1,6 @@
 window.onload = async function () {
-    const numberOfFood = '645032f291c28a8ab5d7ddd7';
-    const numberOfRecipe = '645143264b759c5faf4eb1f3';
+    const numberOfFood = '645032f291c28a8ab5d7ddd7'; // numOfFood
+    const numberOfRecipe = '645143264b759c5faf4eb1f3';// numOfRec
 
     // get data from db
     const response = await fetch(`http://localhost:3500/api/recipe/${numberOfRecipe}`);// add "POST", "PUT"...
