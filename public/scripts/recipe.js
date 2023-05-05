@@ -10,9 +10,9 @@ window.onload = async function () {
     //console.log(id); // виведе значення параметру id
 
     // get data from db
-    const response = await fetch(`http://localhost:3500/api/recipe/${numberOfRecipe}`);// add "POST", "PUT"...
-    const jsonData = await response.json();
-    const response2 = await fetch(`http://localhost:3500/api/food/${numberOfFood}`);// add "POST", "PUT"...
+    // const response = await fetch(`http://localhost:3500/api/recipe/${numberOfRecipe}`);// add "POST", "PUT"...
+    // const jsonData = await response.json();
+    const response2 = await fetch(`http://localhost:3500/api/food_recipe/${numberOfFood}`);// add "POST", "PUT"...
     const jsonData2 = await response2.json();
     
     const hardSpan = document.getElementById("hard-span");
@@ -27,13 +27,13 @@ window.onload = async function () {
     images[2].src = `img/receipt_db/${numberOfFood}/step.png`;
 
     // Задати внутрішній HTML для елементів з id
-    hardSpan.innerHTML = jsonData.difficulty;
-    timeSpan.innerHTML = jsonData.time;
+    hardSpan.innerHTML = jsonData2.difficulty;
+    timeSpan.innerHTML = jsonData2.time;
     const h2 = document.querySelector('h2');
     h2.innerHTML = jsonData2.name;
     document.title = `Food dictionary - ${jsonData2.name}`;
     // Задати внутрішній HTML для елементів <p>
     for (let i = 0; i < paragraphs.length; i++) {
-        paragraphs[i].innerHTML = jsonData.steps[i];
+        paragraphs[i].innerHTML = jsonData2.steps[i];
     }
 };
