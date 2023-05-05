@@ -16,6 +16,9 @@ window.onload = async function () {
       image.src = `img/front_img/${dishes[i - 1].path}.jpg`;
     }
   }
+
+
+
   let results = dishes;
   //set default text
   const textBelowImages = document.querySelectorAll('.text-below-image');
@@ -88,4 +91,13 @@ window.onload = async function () {
       }
     }
   });
+  // Отримуємо всі картинки на сторінці
+  // Додаємо обробник події "click" до кожної картинки
+  images.forEach((image, i) => {
+    image.addEventListener('click', () => {
+      // Переходимо на нову сторінку та передаємо змінну dishes[i]._id у параметрі URL
+      window.location.href = `recipe.html?id=${dishes[i+currentFirst].path}`;
+    });
+  });
+
 };
