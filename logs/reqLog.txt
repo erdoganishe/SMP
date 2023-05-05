@@ -7057,3 +7057,21 @@
 20230505	15:13:20	1cfe3c06-d289-4748-85db-0c875d24c507	GET	undefined	/img/front_img/645032f391c28a8ab5d7ddda.jpg
 20230505	15:13:20	e46820a0-cee8-43e5-abcc-5cf0d2527f45	GET	undefined	/img/receipt_db/645032f391c28a8ab5d7ddda/step.png
 >>>>>>> Stashed changes
+20230505	16:22:19	64600e01-0f4c-4a1a-b46d-727ab88f7bb5	GET	undefined	/recipe.html?id=645032f391c28a8ab5d7ddda
+20230505	16:22:19	3f0713c5-92bc-42a7-a84c-23f337ed7261	GET	undefined	/css/recipe.css
+20230505	16:22:20	8218a9c0-6f57-4826-b9d0-d73200f80a8a	GET	undefined	/scripts/recipe.js
+20230505	16:22:20	a53bcaf4-0b40-4b47-8016-a722dc40f3ff	GET	undefined	/img/logo.jpg
+20230505	16:22:20	9cfe9e7a-eee7-4150-8d99-26e5dd47336b	GET	undefined	/img/Recipe_bg.png
+20230505	16:22:21	744c807f-6a96-4877-9ccf-2ecdc6ad89be	GET	undefined	/api/food_recipe/645032f391c28a8ab5d7ddda
+20230505	16:22:21	18497f02-8c98-4959-87d4-09ff9d133927	GET	undefined	/img/receipt_db/645032f391c28a8ab5d7ddda/history.png
+20230505	16:22:21	413642d5-d761-402d-a83f-8347c49a97bf	GET	undefined	/img/front_img/645032f391c28a8ab5d7ddda.jpg
+20230505	16:22:21	e413a7b6-e884-458c-9001-663531d7a2d7	GET	undefined	/img/receipt_db/645032f391c28a8ab5d7ddda/step.png
+20230505	16:22:36	2f5d28f1-bd34-40e3-b646-0dd6d5d4467b	GET	undefined	/recipe.html?id=645032f391c28a8ab5d7ddda
+20230505	16:22:36	5c4292fc-04a5-407d-9cd9-ae03f26b7743	GET	undefined	/css/recipe.css
+20230505	16:22:36	3d607e64-1584-4d44-964e-e1e4f3f4114d	GET	undefined	/scripts/recipe.js
+20230505	16:22:36	dc6b7d33-b135-4a2a-a51b-299529feb221	GET	undefined	/img/logo.jpg
+20230505	16:22:36	9958e035-a25b-4dd2-bb3d-48361c4698de	GET	undefined	/img/Recipe_bg.png
+20230505	16:22:37	47f32194-fa2c-41cf-9729-bc2a7d378f64	GET	undefined	/api/food_recipe/645032f391c28a8ab5d7ddda
+20230505	16:22:37	ae7f1d97-235c-4240-b772-4b1b0011ccea	GET	undefined	/img/receipt_db/645032f391c28a8ab5d7ddda/history.png
+20230505	16:22:37	89f5b6c0-6b1b-4843-aa49-59d7e96df0fe	GET	undefined	/img/front_img/645032f391c28a8ab5d7ddda.jpg
+20230505	16:22:37	d2ce32ea-9e3d-42cb-bb4a-f95660253010	GET	undefined	/img/receipt_db/645032f391c28a8ab5d7ddda/step.png
