@@ -110,4 +110,8 @@ router.get('/roflpage(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '../views', 'roflpage.html'));
 });
 
+router.get('/privatePage(.html)?', (req, res) => {
+    res.sendFile(path.join(__dirname, '../views', 'privatePage.html'));
+});
+
 module.exports = router;
