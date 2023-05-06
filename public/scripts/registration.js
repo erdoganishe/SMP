@@ -1,26 +1,26 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const emails = [
-        'example1@gmail.com',
-        'example2@gmail.com',
-        'example3@gmail.com',
-        'example4@gmail.com',
-        'example5@gmail.com',
-        'example6@gmail.com',
-        'example7@gmail.com',
-        'example8@gmail.com',
-        'example9@gmail.com',
-        'example10@gmail.com',
-        'example11@gmail.com',
-        'example12@gmail.com',
-        'example13@gmail.com',
-        'example14@gmail.com',
-        'example15@gmail.com',
-        'example16@gmail.com',
-        'example17@gmail.com',
-        'example18@gmail.com',
-        'example19@gmail.com',
-        'example20@gmail.com'
-    ];
+    // const emails = [
+    //     'example1@gmail.com',
+    //     'example2@gmail.com',
+    //     'example3@gmail.com',
+    //     'example4@gmail.com',
+    //     'example5@gmail.com',
+    //     'example6@gmail.com',
+    //     'example7@gmail.com',
+    //     'example8@gmail.com',
+    //     'example9@gmail.com',
+    //     'example10@gmail.com',
+    //     'example11@gmail.com',
+    //     'example12@gmail.com',
+    //     'example13@gmail.com',
+    //     'example14@gmail.com',
+    //     'example15@gmail.com',
+    //     'example16@gmail.com',
+    //     'example17@gmail.com',
+    //     'example18@gmail.com',
+    //     'example19@gmail.com',
+    //     'example20@gmail.com'
+    // ];
 
     const inputs = document.querySelectorAll('input');
 
@@ -45,6 +45,8 @@ document.addEventListener('DOMContentLoaded', function () {
         //     console.log("false");
         // }
     });
+
+    // chack boxes
     const anyoneCheckbox = document.getElementById("check-writer");
     const nooneCheckbox = document.getElementById("check-reader");
     let isVisible = false;
@@ -65,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log(isVisible);
     });
 
-
+    // register method
     const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
     const registrButton = document.getElementById('register-btn');
@@ -86,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (response.ok) {
             //localStorage.setItem('accessToken', data.accessToken);
-            window.location.href = '/login';
+            window.location.href = '/regpage/login';
         } else {
             alert(data.message ?? "Error. Try again later");
         }
