@@ -110,7 +110,10 @@ router.get('/roflpage(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '../views', 'roflpage.html'));
 });
 
-router.get('/privatePage(.html)?', (req, res) => {
+router.get('/privatePage(.html)?',
+    // verifyRoles(ROLES_LIST.User),
+    // verifyJwT,
+    (req, res) => {
     res.sendFile(path.join(__dirname, '../views', 'privatePage.html'));
 });
 
