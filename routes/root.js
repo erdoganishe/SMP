@@ -42,10 +42,10 @@ router.route('/newRecipe(.html)?')
 
 router.post('/newRecipeArray', async (req, res) => {
 
-    console.log(req.body.name);
-    console.log(req.body.difficulty);
-    console.log(req.body.time);
-    console.log();
+    // console.log(req.body.name);
+    // console.log(req.body.difficulty);
+    // console.log(req.body.time);
+    // console.log();
 
     try {
         const result = await FoodRecipe.create({
