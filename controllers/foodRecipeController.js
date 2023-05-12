@@ -1,24 +1,48 @@
 const FoodRecipe = require('../model/FoodRecipe');
+const extImgController = require('./extImgController');
+const path = require('path');
+const fs = require('fs');
 
 const getAllFoodRecipe = async (req, res) => {
     const foodRecipe = await FoodRecipe.find();
-    if(!foodRecipe) return res.sendStatus(204).json({'message': 'No recipe at all!'});
-    res.json(foodRecipe)
+    if (!foodRecipe) return res.sendStatus(204).json({ 'message': 'No recipe at all!' });
+
+    const modifiedData = foodRecipe.map(item => {
+
+        return {
+            ...item, extImg: {
+                main: extImgController(
+                    path.join(__dirname, '..', 'public', 'img', 'front_img')
+                    , item.id),
+                history: fs.existsSync(path.join(__dirname, '..', 'public', 'img', 'receipt_db', item.id)) ? extImgController(
+                    path.join(__dirname, '..', 'public', 'img', 'receipt_db', item.id)
+                    , 'history') : 'nothing',
+                step: fs.existsSync(path.join(__dirname, '..', 'public', 'img', 'receipt_db', item.id)) ? extImgController(
+                    path.join(__dirname, '..', 'public', 'img', 'receipt_db', item.id)
+                    , 'step') : 'nothing'
+
+            }
+        };
+    });
+
+    //console.log(modifiedData);
+
+    res.json(modifiedData)
 }
 
 const createNewFoodRecipe = async (req, res) => {
-    if(!req?.body?.name){
-        return res.sendStatus(400).json({'message': 'Name are required!'});
+    if (!req?.body?.name) {
+        return res.sendStatus(400).json({ 'message': 'Name are required!' });
     }
 
-    try{
+    try {
         const result = await FoodRecipe.create({
             name: req.body.name,
             difficulty: req.body?.difficulty,
             time: req.body?.time,
             steps: req.body?.steps
         });
-        
+
         res.status(201).json(result);
     } catch (err) {
         console.error(err);
@@ -26,41 +50,41 @@ const createNewFoodRecipe = async (req, res) => {
 }
 
 const updateFoodRecipe = async (req, res) => {
-    if(!req?.body?.id){
-        return res.status(400).json({'message': 'ID is required!'});
+    if (!req?.body?.id) {
+        return res.status(400).json({ 'message': 'ID is required!' });
     }
 
-    const foodRecipe = await FoodRecipe.findOne({ _id: req.body.id}).exec();
+    const foodRecipe = await FoodRecipe.findOne({ _id: req.body.id }).exec();
 
-    if(!foodRecipe){
-        return res.status(204).json({"message": `No recipe with ID ${req.body.id}.`});
+    if (!foodRecipe) {
+        return res.status(204).json({ "message": `No recipe with ID ${req.body.id}.` });
     }
-    if(req.body?.name) foodRecipe.name = req.body.name;
-    if(req.body?.difficulty) foodRecipe.difficulty = req.body.difficulty;
-    if(req.body?.time) foodRecipe.time = req.body.time;
-    if(req.body?.steps) foodRecipe.steps = req.body.steps;
-    
+    if (req.body?.name) foodRecipe.name = req.body.name;
+    if (req.body?.difficulty) foodRecipe.difficulty = req.body.difficulty;
+    if (req.body?.time) foodRecipe.time = req.body.time;
+    if (req.body?.steps) foodRecipe.steps = req.body.steps;
+
     const result = await foodRecipe.save();
     res.json(result);
 }
 
 const deleteFoodRecipe = async (req, res) => {
-    if(!req?.body?.id) return res.status(400).json({ 'message': 'Recipe ID required'});
+    if (!req?.body?.id) return res.status(400).json({ 'message': 'Recipe ID required' });
 
-    const foodRecipe = await FoodRecipe.findOne({ _id: req.body.id}).exec();
-    if(!foodRecipe){
-        return res.status(204).json({"message": `No recipe with ID ${req.body.id}.`});
+    const foodRecipe = await FoodRecipe.findOne({ _id: req.body.id }).exec();
+    if (!foodRecipe) {
+        return res.status(204).json({ "message": `No recipe with ID ${req.body.id}.` });
     }
-    const result = await FoodRecipe.deleteOne({ _id: req.body.id});
+    const result = await FoodRecipe.deleteOne({ _id: req.body.id });
     res.json(result);
 }
 
 const getFoodRecipe = async (req, res) => {
-    if(!req?.params?.id) return res.status(400).json({ 'message': 'Recipe ID required'});
+    if (!req?.params?.id) return res.status(400).json({ 'message': 'Recipe ID required' });
 
-    const foodRecipe = await FoodRecipe.findOne({ _id: req.params.id}).exec();
-    if(!foodRecipe){
-        return res.status(204).json({"message": `No recipe with ID ${req.params.id}.`});
+    const foodRecipe = await FoodRecipe.findOne({ _id: req.params.id }).exec();
+    if (!foodRecipe) {
+        return res.status(204).json({ "message": `No recipe with ID ${req.params.id}.` });
     }
     res.json(foodRecipe);
 }
