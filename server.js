@@ -3,7 +3,6 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const cors = require('cors');
-const fileUpload = require("express-fileupload")
 const corsOptions = require('./config/corsOptions');
 const { logger } = require('./middleware/logEvents');
 

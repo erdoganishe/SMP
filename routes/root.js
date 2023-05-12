@@ -62,6 +62,8 @@ router.post('/newRecipeArray', async (req, res) => {
         var files = fs.readdirSync(path.join(__dirname, '../public/img/test/',));
         Object.keys(files).forEach(key => {
             if (num == 1) {
+                fs.mkdirSync(path.join(__dirname, '../public/img/receipt_db/',
+                `${result.id}`));
                 fs.rename(
                     path.join(__dirname, '../public/img/test/', files[key]),
                     path.join(__dirname,
@@ -74,8 +76,6 @@ router.post('/newRecipeArray', async (req, res) => {
                 );
             }
             if (num == 2) {
-                fs.mkdirSync(path.join(__dirname, '../public/img/receipt_db/',
-                `${result.id}`));
                 
                 fs.rename(path.join(__dirname, '../public/img/test/', files[key]),
                     path.join(__dirname, '../public/img/receipt_db/',

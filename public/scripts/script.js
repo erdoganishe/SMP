@@ -13,9 +13,27 @@ window.onload = async function () {
     const image = document.querySelector(`img[alt="Image ${i}"]`);
     if (image) {
       images.push(image);
-      image.src = `img/front_img/${dishes[i - 1].path}.jpg`;
+      let imagePath = `img/front_img/${dishes[i - 1].path}`;
+      let imageSrc = `${imagePath}.jpg`;
+      if (!imageExists(imageSrc)) {
+        imageSrc = `${imagePath}.png`;
+        if (!imageExists(imageSrc)) {
+          imageSrc = `${imagePath}.jpeg`;
+        }
+      }
+      image.src = imageSrc;
+      //console.log(imageSrc);
     }
   }
+
+  function imageExists(imageUrl) {
+    console.log(imageUrl);
+    var http = new XMLHttpRequest();
+    http.open('HEAD', imageUrl, false);
+    http.send();
+    return http.status != 404;
+  }
+
 
 
 
@@ -93,9 +111,9 @@ window.onload = async function () {
   });
   // Отримуємо всі картинки на сторінці
   // Додаємо обробник події "click" до кожної картинки
-  for (let i =0;i<12;i++){
+  for (let i = 0; i < 12; i++) {
     images[i].addEventListener('click', () => {
-      window.location.href = `recipe.html?id=${results[i+currentFirst].path}`;
+      window.location.href = `recipe.html?id=${results[i + currentFirst].path}`;
     });
   }
 
