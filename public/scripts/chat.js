@@ -21,10 +21,4 @@ window.addEventListener('load', async function () {
         messages.appendChild(item);
         window.scrollTo(0, document.body.scrollHeight);
     });
-
-    io.on('connection', (socket) => {
-        socket.on('chat message', msg => {
-            io.emit('chat message', msg);
-        });
-    });
 });
