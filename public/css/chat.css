@@ -56,5 +56,6 @@ body {
 }
 
 #messages>li:nth-child(odd) {
-    background: #efefef;
+    background:rgba(25, 25, 27, 0.45);
+
 }
