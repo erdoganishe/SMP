@@ -117,4 +117,8 @@ router.get('/privatePage(.html)?',
     res.sendFile(path.join(__dirname, '../views', 'privatePage.html'));
 });
 
+router.get('/chat', (req, res) => {
+    res.sendFile(path.join(__dirname, '../views', 'chat.html'));
+})
+
 module.exports = router;
