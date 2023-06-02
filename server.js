@@ -6,6 +6,10 @@ const cors = require('cors');
 const corsOptions = require('./config/corsOptions');
 const { logger } = require('./middleware/logEvents');
 
+const http = require('http');
+const initSocket = require('./middleware/initSocket');
+const server = http.createServer(app);
+
 const cookieParser = require('cookie-parser');
 const credentials = require('./middleware/credentials');
 const mongoose = require('mongoose');
@@ -65,10 +69,11 @@ app.all('*', (req, res) => {
   }
 });
 
+initSocket(server);
 
 mongoose.connection.once('open', () => {
   console.log('Connected to DB');
-  app.listen(PORT, () => {
+  server.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
   });
 });
