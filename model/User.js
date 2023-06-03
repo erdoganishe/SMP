@@ -18,6 +18,9 @@ const userSchema = new Schema({
         type: String,
         require: true
     },
+    profile : {
+        real_name: String
+    },
     refreshToken: String
 });
 

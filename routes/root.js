@@ -7,9 +7,12 @@ const fs = require('fs');
 const filesPayloadExists = require('../middleware/filesPayloadExists');
 const fileExtLimiter = require('../middleware/fileExtLimiter');
 const fileSizeLimiter = require('../middleware/fileSizeLimiter');
+const fileSaver = require('../middleware/fileSaver');
 
 const foodController = require('../controllers/foodController');
 const FoodRecipe = require('../model/FoodRecipe');
+
+const verifyJWT = require('../middleware/verifyJWT');
 
 router.get('^/$|index(.html)?', (req, res) => {
     res.sendFile(path.join(__dirname, '../views', 'index.html'));
@@ -120,5 +123,14 @@ router.get('/privatePage(.html)?',
 router.get('/chat', (req, res) => {
     res.sendFile(path.join(__dirname, '../views', 'chat.html'));
 })
+
+// avatar or bg upload
+router.post('/imgUpload',
+    verifyJWT,
+    fileUpload({ createParentPath: true }),
+    filesPayloadExists,
+    fileExtLimiter(['.png']),
+    fileSizeLimiter,
+    fileSaver)
 
 module.exports = router;
