@@ -24,20 +24,18 @@ const getAllUser = async (req, res) => {
 //     }
 // }
 
-// const updateUser = async (req, res) => {
-//     if(!req?.body?.id){
-//         return res.status(400).json({'message': 'ID is required!'});
-//     }
+const updateUser = async (req, res) => {
+    if (!req?.user) return res.status(400).json({ 'message': 'User ID required' });
 
-//     const food_one = await User.findOne({ _id: req.body.id}).exec();
+    const user = await User.findOne({ username: req.user }).exec();
+    if (!user) {
+        return res.status(204).json({ "message": `No user with ID ${req.user}.` });
+    }
 
-//     if(!food_one){
-//         return res.status(204).json({"message": `No food with ID ${req.body.id}.`});
-//     }
-//     if (req.body?.name) food_one.name = req.body.name;
-//     const result = await food_one.save();
-//     res.json(result);
-// }
+    if (req.body?.rena) user.profile.real_name = req.body.rena;
+    const result = await user.save();
+    res.json(result);
+}
 
 // const deleteUser = async (req, res) => {
 //     if(!req?.body?.id) return res.status(400).json({ 'message': 'Food ID required'});
@@ -62,6 +60,7 @@ const getUser = async (req, res) => {
 
 module.exports = {
     getAllUser,
+    updateUser,
     // createNewFood,
     // updateFood,
     // deleteFood,
