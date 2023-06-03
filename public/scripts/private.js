@@ -2,7 +2,7 @@ window.addEventListener('load', async function () {
   const accessToken = localStorage.getItem('accessToken');
   const name = localStorage.getItem('nameUser');
 
-  if (!name || !accessToken ) window.location.href = '/regpage/login';
+  if (!name || !accessToken) window.location.href = '/regpage/login';
 
 
   const response = await fetch(`/api/user/${name}`, {
@@ -25,10 +25,10 @@ window.addEventListener('load', async function () {
 
 
   const dataArray =
-    {
-      username: data.username,
-      userrole: data.roles
-    };
+  {
+    username: data.username,
+    userrole: data.roles
+  };
   const username = document.querySelector('#username');
   const userrole = document.querySelector('#userrole');
 
@@ -41,12 +41,38 @@ window.addEventListener('load', async function () {
 
   const loginButton = document.getElementById('logout-btn');
 
-    loginButton.addEventListener('click', async () => {
-      const responseLogOut = await fetch(`/logout`);
-      
-      localStorage.removeItem('accessToken');
-      localStorage.removeItem('nameUser');
-      
-      window.location.href = '/regpage/login';
-    });
+  loginButton.addEventListener('click', async () => {
+    const responseLogOut = await fetch(`/logout`);
+
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('nameUser');
+
+    window.location.href = '/regpage/login';
+  });
+
+
+  const nameInput = document.querySelector('.name-input');
+
+  const editBtn = document.getElementById('edit-btn');
+
+  // Функція, яка заблоковує або дозволяє редагування інпуту
+  function toggleInputEditability() {
+    nameInput.disabled = !nameInput.disabled;
+  }
+
+  // Функція, яка змінює напис на кнопці
+  function toggleButtonText() {
+    if (!nameInput.disabled) {
+      editBtn.textContent = 'Зберігти зміни';
+    } else {
+      editBtn.textContent = 'Редагувати';
+    }
+  }
+  toggleInputEditability();
+
+  // Обробник події натискання на кнопку "Редагувати"
+  editBtn.addEventListener('click', function () {
+    toggleInputEditability();
+    toggleButtonText();
+  });
 });

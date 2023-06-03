@@ -169,6 +169,40 @@ main {
     height: auto;
 }
 
+#logout-btn {
+    width: 200px;
+    height: 42px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 28px;
+    background: #ff5252;
+    color: white;
+    margin-top: 400px;
+    margin-left: 500px;
+}
+
+#logout-btn:hover {
+    background: #b33939;
+}
+.avatar-div img
+{
+    width: 150px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.name-input{
+    width: 700px;
+    height: 75px;
+    font-size: 50px;
+    color: white;
+    background: rgb(25, 25, 27);
+}
+
+#edit-btn{
+    margin-top: 400px;
+    margin-right: 150px;
+}
 
 @media only screen and (max-width: 600px) {
     header {

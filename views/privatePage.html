@@ -1,49 +1,73 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Ваш кабінет</title>
-    <link rel="stylesheet" href="css/private.css">
-    <script src="scripts/private.js"></script>
-  </head>
-  <body>
-    <header>
-        <div class="logo">
-            <a href="index.html"><img src="img/logo.jpg" alt="Українська кухня"></a>
-        </div>
-        <h1>Food dictionary</h1>
-        
-        <div class="login">
-            <a href="/roflpage">Мені пощастить</a>
-        </div>
-          <div class="login">
-              <a href="/newRecipe">+</a>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Ваш кабінет</title>
+  <link rel="stylesheet" href="css/private.css">
+  <script src="scripts/private.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <a href="index.html"><img src="img/logo.jpg" alt="Українська кухня"></a>
+    </div>
+    <h1>Food dictionary</h1>
+
+    <div class="login">
+      <a href="/roflpage">Мені пощастить</a>
+    </div>
+    <div class="login">
+      <a href="/newRecipe">+</a>
+    </div>
+  </header>
+  <main>
+    <table>
+      <tr>
+        <td>
+          <div class="avatar-div">
+            <img src="/img/test_avatar.png">
           </div>
-    </header>
-    <main>
-      <h1>Ваш кабінет</h1>
-      <p>Нік: <span id="username"></span></p>
-      <p>Роль: <span id="userrole"></span></p>
-      <button id="logout-btn">Вийти</button>
-    </main>
-    <footer>
-        <div class="footer">
+        </td>
+        <td>
+          <div>
+            <input class="name-input" value="Рінат Госленко">
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button id="edit-btn">Редагувати</button>
+        </td>
+        <td>
+          <button id="logout-btn">Вийти</button>
+        </td>
+      </tr>
+    </table>
 
-            <div class="row">
-                <ul>
-                    <li><a href="#">Contact us</a></li>
-                    <li><a href="#">Our Services</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
-                    <li><a href="#">Career</a></li>
-                </ul>
-            </div>
+  </main>
 
-            <div class="row">
-                Food dictionary © 2023 FD - All rights reserved
-            </div>
-        </div>
-    </footer>
-    
-  </body>
+  <footer>
+
+    <div class="footer">
+
+      <div class="row">
+        <ul>
+          <li><a href="#">Contact us</a></li>
+          <li><a href="#">Our Services</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Career</a></li>
+        </ul>
+      </div>
+
+      <div class="row">
+        Food dictionary © 2023 FD - All rights reserved
+      </div>
+    </div>
+  </footer>
+
+</body>
+
 </html>
