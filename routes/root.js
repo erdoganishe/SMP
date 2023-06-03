@@ -126,7 +126,7 @@ router.get('/chat', (req, res) => {
 
 // avatar or bg upload
 router.post('/imgUpload',
-    verifyJWT,
+ //   verifyJWT,
     fileUpload({ createParentPath: true }),
     filesPayloadExists,
     fileExtLimiter(['.png']),
