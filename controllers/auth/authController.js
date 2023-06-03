@@ -8,7 +8,7 @@ const handleLogin = async (req, res) => {
     const foundUser = await User.findOne({username: user}).exec();
     if (!foundUser) return res.status(401).json({ 'message': 'No such user' });
     
-    const match = bcrypt.compare(pwd, foundUser.password);
+    const match = await bcrypt.compare(pwd, foundUser.password);
     if (match) {
         const roles = Object.values(foundUser.roles);
         //create JWTs
