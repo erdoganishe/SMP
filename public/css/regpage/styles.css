@@ -6,15 +6,25 @@
   margin: 0 auto;
 }
 
+body {
+  font-family: Arial, sans-serif;
+  background-image: url('../../img/Recipe_bg.png');
+  background-repeat: repeat;
+  background-size: cover;
+  background-position: right;
+  color: white;
+}
+
 .title {
+  margin-top: 300px;
   text-align: center;
-  color: black;
+  color: white;
   font-size: 40px;
 }
 
 .label {
   text-align: left;
-  color: gray;
+  color: white;
   font-size: 30px;
   border-bottom: 1px solid gray;
 }
@@ -31,5 +41,6 @@
   margin-left: -100px;
   height: 50px;
   font-size: 40px;
+  background: blue;
 }
 

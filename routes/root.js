@@ -3,6 +3,8 @@ const router = express.Router();
 const path = require('path');
 const fileUpload = require('express-fileupload');
 const fs = require('fs');
+const ROLES_LIST = require('../config/roles_list');
+const verifyRoles = require('../middleware/verifyRoles');
 
 const filesPayloadExists = require('../middleware/filesPayloadExists');
 const fileExtLimiter = require('../middleware/fileExtLimiter');
@@ -23,8 +25,8 @@ router.get('/recipe(.html)?', (req, res) => {
 });
 
 router.route('/newRecipe(.html)?')
-    .get((req, res) => { res.sendFile(path.join(__dirname, '../views', 'newRecipe.html')); })
-    .post(fileUpload({ createParentPath: true }),
+    .get(verifyJWT, verifyRoles(ROLES_LIST.Editor),(req, res) => { res.sendFile(path.join(__dirname, '../views', 'newRecipe.html')); })
+    .post(verifyJWT, verifyRoles(ROLES_LIST.Editor), fileUpload({ createParentPath: true }),
         filesPayloadExists,
         fileExtLimiter(['.png', '.jpg', 'jpeg', 'bmp', 'webp']),
         fileSizeLimiter,
@@ -43,7 +45,7 @@ router.route('/newRecipe(.html)?')
             return res.json({ status: "success", message: Object.keys(files).toString() });
         });
 
-router.post('/newRecipeArray', async (req, res) => {
+router.post('/newRecipeArray', verifyJWT, verifyRoles(ROLES_LIST.Editor), async (req, res) => {
 
     // console.log(req.body.name);
     // console.log(req.body.difficulty);
@@ -66,7 +68,7 @@ router.post('/newRecipeArray', async (req, res) => {
         Object.keys(files).forEach(key => {
             if (num == 1) {
                 fs.mkdirSync(path.join(__dirname, '../public/img/receipt_db/',
-                `${result.id}`));
+                    `${result.id}`));
                 fs.rename(
                     path.join(__dirname, '../public/img/test/', files[key]),
                     path.join(__dirname,
@@ -79,7 +81,7 @@ router.post('/newRecipeArray', async (req, res) => {
                 );
             }
             if (num == 2) {
-                
+
                 fs.rename(path.join(__dirname, '../public/img/test/', files[key]),
                     path.join(__dirname, '../public/img/receipt_db/',
                         `${result.id}/history${path.extname(files[key])}`), (err) => {
@@ -117,8 +119,8 @@ router.get('/privatePage(.html)?',
     // verifyRoles(ROLES_LIST.User),
     // verifyJwT,
     (req, res) => {
-    res.sendFile(path.join(__dirname, '../views', 'privatePage.html'));
-});
+        res.sendFile(path.join(__dirname, '../views', 'privatePage.html'));
+    });
 
 router.get('/chat', (req, res) => {
     res.sendFile(path.join(__dirname, '../views', 'chat.html'));
@@ -126,7 +128,7 @@ router.get('/chat', (req, res) => {
 
 // avatar or bg upload
 router.post('/imgUpload',
- //   verifyJWT,
+    //   verifyJWT,
     fileUpload({ createParentPath: true }),
     filesPayloadExists,
     fileExtLimiter(['.png']),
