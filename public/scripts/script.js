@@ -3,7 +3,7 @@ window.onload = async function () {
   const extensions = [".jpg", ".png", ".jpeg"]
 
   //get food names
-  const response = await fetch("http://localhost:3500/api/food_recipe", { method: "GET" });// add "POST", "PUT"...
+  const response = await fetch("/api/food_recipe", { method: "GET" });// add "POST", "PUT"...
   const jsonData = await response.json();
   //console.log(jsonData);
   jsonData.forEach(data => {

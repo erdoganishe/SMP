@@ -19,12 +19,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         dataArray1.pathNames = tmp;
 
-        const response = await fetch('http://localhost:3500/newRecipe', {
+        const response = await fetch('/newRecipe', {
             method: 'POST',
             body: formData
         })
         const json = await response.json();
-        const response2 = await fetch('http://localhost:3500/newRecipeArray', {
+        const response2 = await fetch('/newRecipeArray', {
             method: 'POST',
             body: JSON.stringify(dataArray1),
             headers: {
