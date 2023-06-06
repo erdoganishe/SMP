@@ -2,102 +2,109 @@
 <html lang="uk-UA">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food dictionary</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="scripts/script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food dictionary</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="scripts/script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
-    <!-- Header -->
-    <header>
-        <div class="logo">
-            <a href="index.html"><img src="img/logo.jpg" alt="Українська кухня"></a>
-        </div>
-        <h1>Food dictionary</h1>
-        <div class="search">
-            <input type="text" id = "find-input" placeholder="Пошук...">
-        </div>
-        <div class="login">
-          <a href="/roflpage">Мені пощастить</a>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <a href="index.html"><img src="img/logo.jpg" alt="Українська кухня"></a>
+    </div>
+    <h1>Food dictionary</h1>
+    <div class="search">
+      <input type="text" id="find-input" placeholder="Пошук...">
+    </div>
+    <div class="login">
+      <a href="/roflpage">Мені пощастить</a>
+    </div>
+    <div class="login">
+      <a href = "/chat">Чат</a>
+    </div>
+    <div class="login">
+      <a href = "/privatePage">Особистий кабінет</a>
+    </div>
+    <div class="login">
+      <a href="/newRecipe">+</a>
+    </div>
+
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <table>
+      <tr>
+        <td><img src="" alt="Image 1"></td>
+        <td><img src="" alt="Image 2"></td>
+        <td><img src="" alt="Image 3"></td>
+      </tr>
+      <tr>
+        <td class="text-below-image">Text below image 1</td>
+        <td class="text-below-image">Text below image 2</td>
+        <td class="text-below-image">Text below image 3</td>
+      </tr>
+      <tr>
+        <td><img src="" alt="Image 4"></td>
+        <td><img src="" alt="Image 5"></td>
+        <td><img src="" alt="Image 6"></td>
+      </tr>
+      <tr>
+        <td class="text-below-image">Text below image 4</td>
+        <td class="text-below-image">Text below image 5</td>
+        <td class="text-below-image">Text below image 6</td>
+      </tr>
+      <tr>
+        <td><img src="" alt="Image 7"></td>
+        <td><img src="" alt="Image 8"></td>
+        <td><img src="" alt="Image 9"></td>
+      </tr>
+      <tr>
+        <td class="text-below-image">Text below image 7</td>
+        <td class="text-below-image">Text below image 8</td>
+        <td class="text-below-image">Text below image 9</td>
+      </tr>
+      <tr>
+        <td><img src="" alt="Image 10"></td>
+        <td><img src="" alt="Image 11"></td>
+        <td><img src="" alt="Image 12"></td>
+      </tr>
+      <tr>
+        <td class="text-below-image">Text below image 10</td>
+        <td class="text-below-image">Text below image 11</td>
+        <td class="text-below-image">Text below image 12</td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <button id="prev-button">Previous</button>
+          <button id="next-button">Next</button>
+        </td>
+      </tr>
+    </table>
+  </main>
+  <!-- Footer -->
+  <footer>
+    <div class="footer">
+
+      <div class="row">
+        <ul>
+          <li><a href="#">Contact us</a></li>
+          <li><a href="#">Our Services</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Career</a></li>
+        </ul>
       </div>
-        <div class="login">
-            <a href="/newRecipe">+</a>
-        </div>
-    </header>
 
-    <!-- Main Content -->
-    <main>
-        <table>
-              <tr>
-                <td><img src="" alt="Image 1"></td>
-                <td><img src="" alt="Image 2"></td>
-                <td><img src="" alt="Image 3"></td>
-              </tr>
-              <tr>
-                <td class="text-below-image">Text below image 1</td>
-                <td class="text-below-image">Text below image 2</td>
-                <td class="text-below-image">Text below image 3</td>
-              </tr>
-              <tr>
-                <td><img src="" alt="Image 4"></td>
-                <td><img src="" alt="Image 5"></td>
-                <td><img src="" alt="Image 6"></td>
-              </tr>
-              <tr>
-                <td class="text-below-image">Text below image 4</td>
-                <td class="text-below-image">Text below image 5</td>
-                <td class="text-below-image">Text below image 6</td>
-              </tr>
-              <tr>
-                <td><img src="" alt="Image 7"></td>
-                <td><img src="" alt="Image 8"></td>
-                <td><img src="" alt="Image 9"></td>
-              </tr>
-              <tr>
-                <td class="text-below-image">Text below image 7</td>
-                <td class="text-below-image">Text below image 8</td>
-                <td class="text-below-image">Text below image 9</td>
-              </tr>
-              <tr>
-                <td><img src="" alt="Image 10"></td>
-                <td><img src="" alt="Image 11"></td>
-                <td><img src="" alt="Image 12"></td>
-              </tr>
-              <tr>
-                <td class="text-below-image">Text below image 10</td>
-                <td class="text-below-image">Text below image 11</td>
-                <td class="text-below-image">Text below image 12</td>
-              </tr>
-              <tr>
-                <td colspan="3">
-                  <button id = "prev-button">Previous</button>
-                  <button id = "next-button">Next</button>
-                </td>
-              </tr>
-          </table>
-    </main>
-    <!-- Footer -->
-    <footer>
-        <div class="footer">
-
-            <div class="row">
-                <ul>
-                    <li><a href="#">Contact us</a></li>
-                    <li><a href="#">Our Services</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
-                    <li><a href="#">Career</a></li>
-                </ul>
-            </div>
-
-            <div class="row">
-                Food dictionary © 2023 FD - All rights reserved
-            </div>
-        </div>
-    </footer>
+      <div class="row">
+        Food dictionary © 2023 FD - All rights reserved
+      </div>
+    </div>
+  </footer>
 </body>
 
 </html>
