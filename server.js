@@ -57,6 +57,7 @@ app.use('/api/food', require('./routes/api/food'));
 app.use('/api/recipe', require('./routes/api/recipe'));
 app.use('/api/food_recipe', require('./routes/api/foodRecipe'));
 app.use('/api/user', require('./routes/api/user'));
+app.use('/api/chat', require('./routes/api/chat'));
 
 app.all('*', (req, res) => {
   res.status(404);
