@@ -1,4 +1,37 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
+    const accessToken = localStorage.getItem('accessToken');
+    const name = localStorage.getItem('nameUser');
+  
+    if (!name || !accessToken) window.location.href = '/privatePage';
+  
+  
+    const response = await fetch(`/api/user/${name}`, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${accessToken}`
+      }
+    });
+    //console.log(response);
+    const data = await response.json().catch(err => window.location.href = '/privatePage');
+  
+    if (response.ok) {
+      //localStorage.setItem('accessToken', data.accessToken);
+      //;
+      //console.log(data);
+    } else {
+  
+      alert(data.message ?? "Error. Try again later");
+    }
+  
+    
+  
+    const userdataArray =
+    {
+      username: data.username,
+      userrole: data.roles
+    };
+    if(!userdataArray.userrole.Editor) window.location.href = '/privatePage';
+
     let dataArray = {};
     // Назва страви, складність, час, історія, інгрідієнти, степи, висновок 
     const saveButton = document.querySelector('.save-button');

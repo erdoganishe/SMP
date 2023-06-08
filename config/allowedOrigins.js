@@ -1,5 +1,5 @@
 const allowedOrigins = [
-    'https://www.DOMAINNAME.com', // Change
+    //'https://www.DOMAINNAME.com', // Change
     'http://127.0.0.1:3500',
     // '192.168.1.113',
     // '192.168.1.114',

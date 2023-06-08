@@ -25,8 +25,12 @@ router.get('/recipe(.html)?', (req, res) => {
 });
 
 router.route('/newRecipe(.html)?')
-    .get(verifyJWT, verifyRoles(ROLES_LIST.Editor),(req, res) => { res.sendFile(path.join(__dirname, '../views', 'newRecipe.html')); })
-    .post(verifyJWT, verifyRoles(ROLES_LIST.Editor), fileUpload({ createParentPath: true }),
+    .get(/*verifyJWT, verifyRoles(ROLES_LIST.Editor),*/(req, res) => { 
+        ///console.log('before file');
+        res.sendFile(path.join(__dirname, '../views', 'newRecipe.html')); 
+        //console.log('after file');
+    })
+    .post(/*verifyJWT, verifyRoles(ROLES_LIST.Editor),*/ fileUpload({ createParentPath: true }),
         filesPayloadExists,
         fileExtLimiter(['.png', '.jpg', 'jpeg', 'bmp', 'webp']),
         fileSizeLimiter,
@@ -45,7 +49,7 @@ router.route('/newRecipe(.html)?')
             return res.json({ status: "success", message: Object.keys(files).toString() });
         });
 
-router.post('/newRecipeArray', verifyJWT, verifyRoles(ROLES_LIST.Editor), async (req, res) => {
+router.post('/newRecipeArray'/*, verifyJWT, verifyRoles(ROLES_LIST.Editor)*/, async (req, res) => {
 
     // console.log(req.body.name);
     // console.log(req.body.difficulty);
