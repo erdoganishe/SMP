@@ -72,6 +72,74 @@ body {
     background: blue;
 }
 
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(25, 25, 27);
+    padding: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+header img {
+    height: 80px;
+    width: 80px;
+}
+
+header h1 {
+    font-size: 36px;
+}
+
+header form {
+    display: flex;
+    align-items: center;
+}
+
+header form input[type="text"] {
+    padding: 8px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.login a {
+    color: white;
+    font-size: 25px;
+
+}
+
+header form input[type="submit"] {
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none;
+    background: #7f8fa6;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+header nav {
+    display: flex;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+
+
 /* #messages>li:nth-child(odd) {
     background: rgba(25, 25, 27, 0.45);
 } */
