@@ -1,6 +1,7 @@
 window.addEventListener('load', async function () {
   const accessToken = localStorage.getItem('accessToken');
   const name = localStorage.getItem('nameUser');
+  console.log(localStorage.getItem('nameUser'));
 
   if (!name || !accessToken) window.location.href = '/regpage/login';
 
