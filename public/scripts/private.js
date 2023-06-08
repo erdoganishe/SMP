@@ -23,7 +23,7 @@ window.addEventListener('load', async function () {
     alert(data.message ?? "Error. Try again later");
   }
 
-  
+
 
   const dataArray =
   {
