@@ -75,10 +75,10 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 
     saveButton.addEventListener("click", function () {
-        //console.log(inputArray);
+        console.log(inputArray);
 
-        if (inputArray[1].value != "") {
-            dataArray.name = (inputArray[0].value);
+        if (inputArray[2].value != "") {
+            dataArray.name = (inputArray[1].value);
         } else {
             alert("Введіть назву блюда"); return;
         }
@@ -87,14 +87,14 @@ document.addEventListener("DOMContentLoaded", async function () {
         const selectedOptionText = selectElement.options[selectElement.selectedIndex].value;
         dataArray.difficulty = (selectedOptionText);
 
-        if (inputArray[2].value != "") {
-            dataArray.time = (inputArray[1].value);
+        if (inputArray[3].value != "") {
+            dataArray.time = (inputArray[2].value);
         } else {
             alert("Введіть час приготування блюда"); return;
         }
 
-        if (inputArray[3].value != "") {
-            dataArray.history = (inputArray[2].value);
+        if (inputArray[4].value != "") {
+            dataArray.history = (inputArray[3].value);
         } else {
             alert("Введіть історію блюда"); return;
         }
@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
 
         dataArray.steps = [];
-        for (let i = 4; i < inputArray.length - 1; i++) {
+        for (let i = 5; i < inputArray.length - 1; i++) {
             if (inputArray[i].value != "") { dataArray.steps.push(inputArray[i].value); }
         }
 
