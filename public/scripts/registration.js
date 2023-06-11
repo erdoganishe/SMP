@@ -70,11 +70,17 @@ document.addEventListener('DOMContentLoaded', function () {
     // register method
     const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
+    const passwordConInput = document.getElementById('password');
     const registrButton = document.getElementById('register-btn');
 
     registrButton.addEventListener('click', async () => {
         const email = emailInput.value;
         const password = passwordInput.value;
+        const passwordCon = passwordConInput.value;
+        if(password != passwordCon) {
+            alert("Passwords are not matched!");
+            return;
+        }
 
         const response = await fetch('/register', {
             method: 'POST',
