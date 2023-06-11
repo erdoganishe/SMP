@@ -20,8 +20,7 @@ window.addEventListener('load', async function () {
     //;
     //console.log(data);
   } else {
-
-    alert(data.message ?? "Error. Try again later");
+    window.location.href = '/regpage/login';
   }
 
 
