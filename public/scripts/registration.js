@@ -78,25 +78,25 @@ document.addEventListener('DOMContentLoaded', function () {
         const password = passwordInput.value;
         const passwordCon = passwordConInput.value;
         if(password != passwordCon) {
+            console.log("Passwords are not matched!");
             alert("Passwords are not matched!");
-            return;
-        }
-
-        const response = await fetch('/register', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ 'user': email, 'pwd': password, 'roles': isVisible })
-        });
-
-        const data = await response.json();
-
-        if (response.ok) {
-            //localStorage.setItem('accessToken', data.accessToken);
-            window.location.href = '/regpage/login';
         } else {
-            alert(data.message ?? "Error. Try again later");
+            const response = await fetch('/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ 'user': email, 'pwd': password, 'roles': isVisible })
+            });
+    
+            const data = await response.json();
+    
+            if (response.ok) {
+                //localStorage.setItem('accessToken', data.accessToken);
+                window.location.href = '/regpage/login';
+            } else {
+                alert(data.message ?? "Error. Try again later");
+            }
         }
     });
 });
