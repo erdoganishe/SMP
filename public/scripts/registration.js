@@ -93,8 +93,10 @@ document.addEventListener('DOMContentLoaded', function () {
     
             if (response.ok) {
                 //localStorage.setItem('accessToken', data.accessToken);
-                window.location.href = '/regpage/login';
+                console.log('ok')
+                //window.location.href = '/regpage/login';
             } else {
+                console.log('not ok')
                 alert(data.message ?? "Error. Try again later");
             }
         }
