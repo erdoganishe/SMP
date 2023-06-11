@@ -8,6 +8,7 @@
 </head>
 
 <body>
+  <!-- Header -->
   <header>
     <div class="logo">
       <a href="index.html"><img src="img/logo.jpg" alt="Українська кухня"></a>
@@ -30,32 +31,36 @@
     </div>
 
   </header>
-  <div class="container">
-    <table>
-      <tr>
-        <td colspan="2">
-          <h1 class="title">Login</h1>
-        </td>
-      </tr>
-      <tr>
-        <td class="label">E-mail:</td>
-        <td><input type="text" class="input" id="email"></td>
-      </tr>
-      <tr>
-        <td class="label">Password:</td>
-        <td><input type="password" class="input" id="password"></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td><button class="button" id="login-btn">Login</button></td>
-      </tr>
-      <tr>
-        <td>
-          <a href="/regpage/registration">Have no account? Register!</a>
-        </td>
-      </tr>
-    </table>
-  </div>
+  <!-- Main Content -->
+  <main>
+    <div class="container">
+      <table>
+        <tr>
+          <td colspan="2">
+            <h1 class="title">Login</h1>
+          </td>
+        </tr>
+        <tr>
+          <td class="label">E-mail:</td>
+          <td><input type="text" class="input" id="email"></td>
+        </tr>
+        <tr>
+          <td class="label">Password:</td>
+          <td><input type="password" class="input" id="password"></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><button class="button" id="login-btn">Login</button></td>
+        </tr>
+        <tr>
+          <td>
+            <a href="/regpage/registration">Have no account? Register!</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </main>
+  <!-- Footer -->
   <footer>
     <div class="footer">
 
@@ -74,7 +79,6 @@
       </div>
     </div>
   </footer>
-
   <script>
     // auth method
     const emailInput = document.getElementById('email');
@@ -104,6 +108,12 @@
       }
     });
   </script>
+
 </body>
+
+
+
+
+
 
 </html>
