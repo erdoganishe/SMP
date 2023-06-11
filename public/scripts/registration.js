@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // register method
     const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
-    const passwordConInput = document.getElementById('password');
+    const passwordConInput = document.getElementById('confirm-password');
     const registrButton = document.getElementById('register-btn');
 
     registrButton.addEventListener('click', async () => {
